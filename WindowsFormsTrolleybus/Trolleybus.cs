@@ -1,13 +1,17 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsTrolleybus
 {
     public class Trolleybus : Bus
     {
+        private int TypeDoor;
         public Color DopColor { private set; get; }
         public bool Antenna { private set; get; }
         public bool Windows { private set; get; }
         public bool Number { private set; get; }
+
+        public DoorEnum numberOfDoors { private set; get; }
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -22,6 +26,7 @@ namespace WindowsFormsTrolleybus
             Number = num;
             Antenna = antenna;
             Windows = windows;
+            TypeDoor = new Random().Next(0, 3);
         }
        
         public override void DrawTrolleybus(Graphics g)
@@ -36,9 +41,30 @@ namespace WindowsFormsTrolleybus
             Brush whiteBrush = new SolidBrush(Color.White);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
 
+            IDoor door;
+            switch (TypeDoor)
+            {
+                case 0:
+                    door = new RestangleDoors(_startPosX, _startPosY);
+                    break;
+                case 1:
+                    door = new EllipseDoors(_startPosX, _startPosY);
+                    break;
+                case 2:
+                    door = new DoorsWithOrnament(_startPosX, _startPosY);
+                    break;
+
+                default:
+                    door = new RestangleDoors(_startPosX, _startPosY);
+                    break;
+            }
+
+
             //кузов
             g.DrawRectangle(blackpen, _startPosX, _startPosY + 10, trolbusWidth - 10, trolbusHeight - 20);
             g.FillRectangle(whiteBrush, _startPosX + 1, _startPosY + 11, trolbusWidth - 12, trolbusHeight - 22);
+
+            door.DrawDoors(g, numberOfDoors, DopColor);
 
             //kolesa
             g.DrawEllipse(blackpen, _startPosX, _startPosY + 48, 15, 15);
@@ -99,6 +125,7 @@ namespace WindowsFormsTrolleybus
             g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 91, _startPosY + 50);
             g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 89, _startPosY + 47);
 
+            
         }
     }
 }
