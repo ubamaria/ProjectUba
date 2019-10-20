@@ -12,7 +12,7 @@ namespace WindowsFormsTrolleybus
 {
     public partial class FormTrolleybus : Form
     {
-        private Trolleybus trolleybus;
+        private ITransport trolleybus;
 
         public FormTrolleybus()
         {
@@ -27,7 +27,15 @@ namespace WindowsFormsTrolleybus
             pictureBoxTrolleybus.Image = bmp;
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonCreateBus_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            trolleybus = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Orange);
+            trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
+            Draw();
+        }
+
+        private void buttonCreateTrolleybus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
             trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, true);
@@ -53,6 +61,6 @@ namespace WindowsFormsTrolleybus
                     break;
             }
             Draw();
-        }
+        } 
     }
 }

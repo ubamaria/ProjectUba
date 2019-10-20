@@ -1,44 +1,86 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace WindowsFormsTrolleybus
 {
-    public class Trolleybus : Bus
+    public class Bus : PublicTransport
     {
-        public Color DopColor { private set; get; }
-        public bool Antenna { private set; get; }
-        public bool Windows { private set; get; }
-        public bool Number { private set; get; }
+        /// <summary>
+        /// Ширина отрисовки троллейбуса
+        /// </summary>
+        protected const int trolbusWidth = 100;
+        /// <summary>
+        /// Высота отрисовки троллейбуса
+        /// </summary>
+        protected const int trolbusHeight = 60;
+
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес троллейбуса</param>
         /// <param name="mainColor">Основной цвет</param>
-        /// <param name="dopColor">Дополнительный цвет</param>
-        public Trolleybus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool num, bool antenna, bool windows) :
-            base (maxSpeed, weight, mainColor)
+        public Bus(int maxSpeed, float weight, Color mainColor)
         {
-            DopColor = dopColor;
-            Number = num;
-            Antenna = antenna;
-            Windows = windows;
+            MaxSpeed = maxSpeed;
+            Weight = weight;
+            MainColor = mainColor;
         }
-       
+
+        public override void MoveTransport(Direction direction)
+        {
+            float step = MaxSpeed * 100 / Weight;
+            switch (direction)
+            {
+                case Direction.Right:
+                    if (_startPosX + step < _pictureWidth - trolbusWidth)
+                    {
+                        _startPosX += step;
+                    }
+                    break;
+
+                case Direction.Left:
+                    if (_startPosX - step > 0)
+                    {
+                        _startPosX -= step;
+                    }
+                    break;
+
+                case Direction.Up:
+                    if (_startPosY - step > 0)
+                    {
+                        _startPosY -= step;
+                    }
+                    break;
+
+                case Direction.Down:
+                    if (_startPosY + step < _pictureHeight - trolbusHeight)
+                    {
+                        _startPosY += step;
+                    }
+                    break;
+            }
+        }
+
         public override void DrawTrolleybus(Graphics g)
         {
             Pen blackpen = new Pen(Color.Black);
             Brush brownBrush = new SolidBrush(Color.Brown);
             Brush grayBrush = new SolidBrush(Color.Gray);
-            Brush blackBrush = new SolidBrush(Color.Black);
             Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
             Brush darkorangeBrush = new SolidBrush(Color.DarkOrange);
             Brush yellowBrush = new SolidBrush(Color.Yellow);
-            Brush whiteBrush = new SolidBrush(Color.White);
+            Brush mainBrush = new SolidBrush(MainColor);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
+            Brush whiteBrush = new SolidBrush(Color.White);
 
             //кузов
             g.DrawRectangle(blackpen, _startPosX, _startPosY + 10, trolbusWidth - 10, trolbusHeight - 20);
-            g.FillRectangle(whiteBrush, _startPosX + 1, _startPosY + 11, trolbusWidth - 12, trolbusHeight - 22);
+            g.FillRectangle(mainBrush, _startPosX + 1, _startPosY + 11, trolbusWidth - 11, trolbusHeight - 22);
 
             //kolesa
             g.DrawEllipse(blackpen, _startPosX, _startPosY + 48, 15, 15);
@@ -58,8 +100,6 @@ namespace WindowsFormsTrolleybus
             //window
             g.DrawRectangle(blackpen, _startPosX + 2, _startPosY + 20, 5, 5);
             g.FillRectangle(blueBrush, _startPosX + 2, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
             g.DrawRectangle(blackpen, _startPosX + 18, _startPosY + 20, 5, 5);
             g.FillRectangle(blueBrush, _startPosX + 18, _startPosY + 20, 5, 5);
             g.DrawRectangle(blackpen, _startPosX + 34, _startPosY + 20, 5, 5);
@@ -68,19 +108,10 @@ namespace WindowsFormsTrolleybus
             g.FillRectangle(blueBrush, _startPosX + 50, _startPosY + 20, 5, 5);
             g.DrawRectangle(blackpen, _startPosX + 66, _startPosY + 20, 5, 5);
             g.FillRectangle(blueBrush, _startPosX + 66, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
+
 
             g.DrawRectangle(blackpen, _startPosX + 81, _startPosY + 15, 13, 23);
             g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
-
-            Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
-
-            //antenna
-            g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
-            g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
-            g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
-            g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
 
             //fari
             g.DrawRectangle(blackpen, _startPosX - 3, _startPosY + 40, 4, 2);
