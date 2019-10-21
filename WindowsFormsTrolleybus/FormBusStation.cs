@@ -60,7 +60,8 @@ namespace WindowsFormsTrolleybus
         {
             if (maskedTextBox1.Text != "")
             {
-                var bus = station - Convert.ToInt32(maskedTextBox1.Text);
+                int a = Convert.ToInt32(maskedTextBox1.Text) - 1;
+                var bus = station - a;
                 if (bus != null)
                 {
                     Bitmap bmp = new Bitmap(pictureBoxTakeBus.Width,
