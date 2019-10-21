@@ -11,7 +11,7 @@ namespace WindowsFormsTrolleybus
         public bool Windows { private set; get; }
         public bool Number { private set; get; }
 
-        public DoorEnum numberOfDoors { private set; get; }
+      
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -35,36 +35,17 @@ namespace WindowsFormsTrolleybus
             Brush brownBrush = new SolidBrush(Color.Brown);
             Brush grayBrush = new SolidBrush(Color.Gray);
             Brush blackBrush = new SolidBrush(Color.Black);
-            Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
+            Brush blueBrush = new SolidBrush(DopColor);
             Brush darkorangeBrush = new SolidBrush(Color.DarkOrange);
             Brush yellowBrush = new SolidBrush(Color.Yellow);
-            Brush whiteBrush = new SolidBrush(Color.White);
+            Brush whiteBrush = new SolidBrush(MainColor);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
-
-            IDoor door;
-            switch (TypeDoor)
-            {
-                case 0:
-                    door = new RestangleDoors(_startPosX, _startPosY);
-                    break;
-                case 1:
-                    door = new EllipseDoors(_startPosX, _startPosY);
-                    break;
-                case 2:
-                    door = new DoorsWithOrnament(_startPosX, _startPosY);
-                    break;
-
-                default:
-                    door = new RestangleDoors(_startPosX, _startPosY);
-                    break;
-            }
 
 
             //кузов
             g.DrawRectangle(blackpen, _startPosX, _startPosY + 10, trolbusWidth - 10, trolbusHeight - 20);
             g.FillRectangle(whiteBrush, _startPosX + 1, _startPosY + 11, trolbusWidth - 12, trolbusHeight - 22);
 
-            door.DrawDoors(g, numberOfDoors, DopColor);
 
             //kolesa
             g.DrawEllipse(blackpen, _startPosX, _startPosY + 48, 15, 15);
