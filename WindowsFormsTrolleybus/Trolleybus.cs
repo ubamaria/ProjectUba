@@ -24,7 +24,7 @@ namespace WindowsFormsTrolleybus
             Windows = windows;
         }
        
-        public override void DrawTrolleybus(Graphics g)
+        public override void DrawBus(Graphics g)
         {
             Pen blackpen = new Pen(Color.Black);
             Brush brownBrush = new SolidBrush(Color.Brown);
@@ -50,6 +50,8 @@ namespace WindowsFormsTrolleybus
             g.DrawEllipse(blackpen, _startPosX + 80, _startPosY + 51, 7, 7);
             g.FillEllipse(grayBrush, _startPosX + 4, _startPosY + 51, 7, 7);
             g.FillEllipse(grayBrush, _startPosX + 80, _startPosY + 51, 7, 7);
+
+            base.DrawBus(g);
 
             //нижняя часть кузова
             g.DrawRectangle(blackpen, _startPosX - 5, _startPosY + 45, 90, 5);

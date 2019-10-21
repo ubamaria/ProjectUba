@@ -66,7 +66,7 @@ namespace WindowsFormsTrolleybus
             }
         }
 
-        public override void DrawTrolleybus(Graphics g)
+        public override void DrawBus(Graphics g)
         {
             Pen blackpen = new Pen(Color.Black);
             Brush brownBrush = new SolidBrush(Color.Brown);

@@ -38,7 +38,7 @@ namespace WindowsFormsTrolleybus
         /// </summary>
         public Color MainColor { protected set; get; }
 
-        public abstract void DrawTrolleybus(Graphics g);
+        public abstract void DrawBus(Graphics g);
         public abstract void MoveTransport(Direction direction);
         public void SetPosition(int x, int y, int width, int height)
         {
