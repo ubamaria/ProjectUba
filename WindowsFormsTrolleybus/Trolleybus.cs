@@ -1,13 +1,17 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsTrolleybus
 {
     public class Trolleybus : Bus
     {
+        private int TypeDoor;
         public Color DopColor { private set; get; }
         public bool Antenna { private set; get; }
         public bool Windows { private set; get; }
         public bool Number { private set; get; }
+
+        public DoorEnum numberOfDoors { private set; get; }
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -22,6 +26,7 @@ namespace WindowsFormsTrolleybus
             Number = num;
             Antenna = antenna;
             Windows = windows;
+            TypeDoor = new Random().Next(0, 3);
         }
        
         public override void DrawBus(Graphics g)
@@ -36,9 +41,30 @@ namespace WindowsFormsTrolleybus
             Brush whiteBrush = new SolidBrush(Color.White);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
 
+            IDoor door;
+            switch (TypeDoor)
+            {
+                case 0:
+                    door = new RestangleDoors(_startPosX, _startPosY);
+                    break;
+                case 1:
+                    door = new EllipseDoors(_startPosX, _startPosY);
+                    break;
+                case 2:
+                    door = new DoorsWithOrnament(_startPosX, _startPosY);
+                    break;
+
+                default:
+                    door = new RestangleDoors(_startPosX, _startPosY);
+                    break;
+            }
+
+
             //кузов
             g.DrawRectangle(blackpen, _startPosX, _startPosY + 10, trolbusWidth - 10, trolbusHeight - 20);
             g.FillRectangle(whiteBrush, _startPosX + 1, _startPosY + 11, trolbusWidth - 12, trolbusHeight - 22);
+
+            door.DrawDoors(g, numberOfDoors, DopColor);
 
             //kolesa
             g.DrawEllipse(blackpen, _startPosX, _startPosY + 48, 15, 15);
@@ -51,13 +77,15 @@ namespace WindowsFormsTrolleybus
             g.FillEllipse(grayBrush, _startPosX + 4, _startPosY + 51, 7, 7);
             g.FillEllipse(grayBrush, _startPosX + 80, _startPosY + 51, 7, 7);
 
-            base.DrawBus(g);
-
             //нижняя часть кузова
             g.DrawRectangle(blackpen, _startPosX - 5, _startPosY + 45, 90, 5);
             g.FillRectangle(darkblueBrush, _startPosX - 5, _startPosY + 45, 100, 5);
 
+            base.DrawBus(g);
+
             //window
+
+            
             g.DrawRectangle(blackpen, _startPosX + 2, _startPosY + 20, 5, 5);
             g.FillRectangle(blueBrush, _startPosX + 2, _startPosY + 20, 5, 5);
             g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
@@ -77,6 +105,8 @@ namespace WindowsFormsTrolleybus
             g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
 
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
+
+            
 
             //antenna
             g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
@@ -101,6 +131,7 @@ namespace WindowsFormsTrolleybus
             g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 91, _startPosY + 50);
             g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 89, _startPosY + 47);
 
+            
         }
     }
 }
