@@ -29,7 +29,7 @@ namespace WindowsFormsTrolleybus
             TypeDoor = new Random().Next(0, 3);
         }
        
-        public override void DrawTrolleybus(Graphics g)
+        public override void DrawBus(Graphics g)
         {
             Pen blackpen = new Pen(Color.Black);
             Brush brownBrush = new SolidBrush(Color.Brown);
@@ -101,6 +101,8 @@ namespace WindowsFormsTrolleybus
             g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
 
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
+
+            base.DrawBus(g);
 
             //antenna
             g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);

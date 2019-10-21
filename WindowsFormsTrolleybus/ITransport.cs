@@ -16,6 +16,6 @@ namespace WindowsFormsTrolleybus
         void MoveTransport(Direction direction);
 
         //отрисовка троллейбуса
-        void DrawTrolleybus(Graphics g);
+        void DrawBus(Graphics g);
     }
 }

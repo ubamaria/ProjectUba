@@ -23,7 +23,7 @@ namespace WindowsFormsTrolleybus
         {
             Bitmap bmp = new Bitmap(pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            trolleybus.DrawTrolleybus(gr);
+            trolleybus.DrawBus(gr);
             pictureBoxTrolleybus.Image = bmp;
         }
         //создать автобус
@@ -38,7 +38,7 @@ namespace WindowsFormsTrolleybus
         private void buttonCreateTrolleybus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, true);
+            trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.White, Color.Yellow, true, true, true);
             trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
             Draw();
         }
