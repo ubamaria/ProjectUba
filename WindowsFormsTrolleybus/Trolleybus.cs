@@ -110,10 +110,10 @@ namespace WindowsFormsTrolleybus
             Brush brownBrush = new SolidBrush(Color.Brown);
             Brush grayBrush = new SolidBrush(Color.Gray);
             Brush blackBrush = new SolidBrush(Color.Black);
-            Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
+            Brush blueBrush = new SolidBrush(DopColor);
             Brush darkorangeBrush = new SolidBrush(Color.DarkOrange);
             Brush yellowBrush = new SolidBrush(Color.Yellow);
-            Brush whiteBrush = new SolidBrush(Color.White);
+            Brush whiteBrush = new SolidBrush(MainColor);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
 
             //кузов
