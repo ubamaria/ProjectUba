@@ -136,32 +136,45 @@ namespace WindowsFormsTrolleybus
             g.FillRectangle(darkblueBrush, _startPosX - 5, _startPosY + 45, 100, 5);
 
             //window
-            g.DrawRectangle(blackpen, _startPosX + 2, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 2, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 18, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 18, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 34, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 34, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 50, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 50, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 66, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 66, _startPosY + 20, 5, 5);
-            g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
-            g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
+            if (Windows)
+            {
+                g.DrawRectangle(blackpen, _startPosX + 2, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 2, _startPosY + 20, 5, 5);
 
-            g.DrawRectangle(blackpen, _startPosX + 81, _startPosY + 15, 13, 23);
-            g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
+                g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
+
+                g.DrawRectangle(blackpen, _startPosX + 18, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 18, _startPosY + 20, 5, 5);
+
+                g.DrawRectangle(blackpen, _startPosX + 34, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 34, _startPosY + 20, 5, 5);
+
+                g.DrawRectangle(blackpen, _startPosX + 50, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 50, _startPosY + 20, 5, 5);
+
+                g.DrawRectangle(blackpen, _startPosX + 66, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 66, _startPosY + 20, 5, 5);
+
+                g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
+            }
+
+                //водительское окно
+                g.DrawRectangle(blackpen, _startPosX + 81, _startPosY + 15, 13, 23);
+                g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
+            
 
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
 
-            //antenna
-            g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
-            g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
-            g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
-            g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
-
+            if (Antenna)
+            {
+                //antenna
+                g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
+                g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
+                g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
+                g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
+            }
 
             //fari
             g.DrawRectangle(blackpen, _startPosX - 3, _startPosY + 40, 4, 2);
@@ -172,14 +185,16 @@ namespace WindowsFormsTrolleybus
 
             Pen redpen = new Pen(Color.Red);
 
-            //number
-            g.DrawRectangle(blackpen, _startPosX + 84, _startPosY + 44, 10, 7);
-            g.FillRectangle(whiteBrush, _startPosX + 84, _startPosY + 45, 10, 6);
-            g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 87, _startPosY + 50);
-            g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 85, _startPosY + 47);
-            g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 91, _startPosY + 50);
-            g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 89, _startPosY + 47);
-
+            if (Number)
+            {
+                //number
+                g.DrawRectangle(blackpen, _startPosX + 84, _startPosY + 44, 10, 7);
+                g.FillRectangle(whiteBrush, _startPosX + 84, _startPosY + 45, 10, 6);
+                g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 87, _startPosY + 50);
+                g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 85, _startPosY + 47);
+                g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 91, _startPosY + 50);
+                g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 89, _startPosY + 47);
+            }
         }
     }
 }
