@@ -54,6 +54,20 @@ namespace WindowsFormsTrolleybus
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
             }
 
+            Pen redpen = new Pen(Color.Red);
+            Brush whiteBrush = new SolidBrush(Color.White);
+
+            if (Number)
+            {
+                //number
+                g.DrawRectangle(blackpen, _startPosX + 84, _startPosY + 44, 10, 7);
+                g.FillRectangle(whiteBrush, _startPosX + 84, _startPosY + 45, 10, 6);
+                g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 87, _startPosY + 50);
+                g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 85, _startPosY + 47);
+                g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 91, _startPosY + 50);
+                g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 89, _startPosY + 47);
+            }
+
         }
     }
 }
