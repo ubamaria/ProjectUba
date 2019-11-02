@@ -26,7 +26,20 @@ namespace WindowsFormsTrolleybus
             Antenna = antenna;
             Windows = windows;
 
-            switch(new Random().Next(0, 3))
+            
+        }
+       
+        public override void DrawBus(Graphics g)
+        {
+
+            base.DrawBus(g);
+
+            Pen blackpen = new Pen(Color.Black);
+            Brush blackBrush = new SolidBrush(Color.Black);
+            Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
+            Brush whiteBrush = new SolidBrush(Color.White);
+
+            switch (new Random().Next(0, 3))
             {
                 case 0:
                     DoorType = DoorEnum.One;
@@ -41,17 +54,6 @@ namespace WindowsFormsTrolleybus
                     DoorType = DoorEnum.One;
                     break;
             }
-        }
-       
-        public override void DrawBus(Graphics g)
-        {
-
-            base.DrawBus(g);
-
-            Pen blackpen = new Pen(Color.Black);
-            Brush blackBrush = new SolidBrush(Color.Black);
-            Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
-            Brush whiteBrush = new SolidBrush(Color.White);
 
             IDoor door;
             switch (DoorType)
