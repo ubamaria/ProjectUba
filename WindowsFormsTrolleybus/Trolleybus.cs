@@ -5,7 +5,7 @@ namespace WindowsFormsTrolleybus
 {
     public class Trolleybus : Bus
     {
-        private int TypeDoor;
+        
         public Color DopColor { private set; get; }
         public bool Antenna { private set; get; }
         public bool Windows { private set; get; }
@@ -26,7 +26,7 @@ namespace WindowsFormsTrolleybus
             Number = num;
             Antenna = antenna;
             Windows = windows;
-            TypeDoor = new Random().Next(0, 3);
+          
         }
        
         public override void DrawBus(Graphics g)
