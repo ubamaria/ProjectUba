@@ -17,7 +17,7 @@ namespace WindowsFormsTrolleybus
             _startPosY = y;
         }
 
-        public void DrawDoors(Graphics g, DoorEnum numberOfDoors, Color color)
+        public void DrawDoors(Graphics g, Color color)
         {
             Pen redpen = new Pen(Color.Red);
             Brush redBrush = new SolidBrush(Color.Red);

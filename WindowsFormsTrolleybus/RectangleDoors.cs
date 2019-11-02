@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTrolleybus
 {
-    public class RestangleDoors : IDoor
+    public class RectangleDoors : IDoor
     {
         public float _startPosX;
         public float _startPosY;
-        public RestangleDoors(float x, float y)
+        public RectangleDoors(float x, float y)
         {
             _startPosX = x;
             _startPosY = y;
         }
-        public void DrawDoors(Graphics g, DoorEnum numberOfDoors, Color color)
+        public void DrawDoors(Graphics g, Color color)
         {
             Pen blackpen = new Pen(Color.Black);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);

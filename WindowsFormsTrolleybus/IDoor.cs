@@ -9,6 +9,6 @@ namespace WindowsFormsTrolleybus
 {
    public  interface IDoor
     {
-        void DrawDoors(Graphics g,DoorEnum numberOfDoors, Color color);
+        void DrawDoors(Graphics g, Color color);
     }
 }
