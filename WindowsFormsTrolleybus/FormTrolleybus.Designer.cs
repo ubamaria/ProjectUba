@@ -31,11 +31,14 @@
             this.pictureBoxTrolleybus = new System.Windows.Forms.PictureBox();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
+
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonAddDoor = new System.Windows.Forms.Button();
             this.buttonDeleteDoor = new System.Windows.Forms.Button();
+
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTrolleybus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,16 +48,20 @@
             this.pictureBoxTrolleybus.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxTrolleybus.Name = "pictureBoxTrolleybus";
             this.pictureBoxTrolleybus.Size = new System.Drawing.Size(882, 453);
+
             this.pictureBoxTrolleybus.TabIndex = 11;
+
             this.pictureBoxTrolleybus.TabStop = false;
             // 
             // buttonCreate
             // 
+
             this.buttonCreate.Location = new System.Drawing.Point(31, 29);
             this.buttonCreate.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(100, 28);
             this.buttonCreate.TabIndex = 12;
+
             this.buttonCreate.Text = "Создать";
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
@@ -64,6 +71,7 @@
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonUp.BackgroundImage = global::WindowsFormsTrolleybus.Properties.Resources.up;
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+
             this.buttonUp.Location = new System.Drawing.Point(787, 358);
             this.buttonUp.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUp.Name = "buttonUp";
@@ -99,11 +107,13 @@
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+
             // buttonRight
             // 
             this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRight.BackgroundImage = global::WindowsFormsTrolleybus.Properties.Resources.right;
             this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+
             this.buttonRight.Location = new System.Drawing.Point(835, 403);
             this.buttonRight.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRight.Name = "buttonRight";
@@ -129,12 +139,14 @@
             this.buttonDeleteDoor.TabIndex = 18;
             this.buttonDeleteDoor.Text = "Удалить дверь";
             this.buttonDeleteDoor.Click += new System.EventHandler(this.buttonDeleteDoor_Click);
+
             // 
             // FormTrolleybus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
+
             this.Controls.Add(this.buttonDeleteDoor);
             this.Controls.Add(this.buttonAddDoor);
             this.Controls.Add(this.buttonRight);
@@ -145,6 +157,7 @@
             this.Controls.Add(this.pictureBoxTrolleybus);
             this.Name = "FormTrolleybus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+
             this.Text = "Троллейбус";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTrolleybus)).EndInit();
             this.ResumeLayout(false);
@@ -152,6 +165,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.PictureBox pictureBoxTrolleybus;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonUp;
@@ -160,5 +174,6 @@
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonAddDoor;
         private System.Windows.Forms.Button buttonDeleteDoor;
+
     }
 }

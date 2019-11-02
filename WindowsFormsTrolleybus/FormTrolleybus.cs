@@ -26,10 +26,12 @@ namespace WindowsFormsTrolleybus
             pictureBoxTrolleybus.Image = bmp;
         }
 
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
             trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, true);
+
             trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
             Draw();
         }
@@ -54,6 +56,7 @@ namespace WindowsFormsTrolleybus
             Draw();
         }
 
+
         private void buttonAddDoor_Click(object sender, EventArgs e)
         {
             trolleybus.FuncAddDoor();
@@ -65,5 +68,6 @@ namespace WindowsFormsTrolleybus
             trolleybus.FuncDeleteDoor();
             Draw();
         }
+
     }
 }

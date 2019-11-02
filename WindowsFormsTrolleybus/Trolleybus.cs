@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace WindowsFormsTrolleybus
 {
@@ -57,6 +58,7 @@ namespace WindowsFormsTrolleybus
         /// <param name="mainColor">Основной цвет</param>
         /// <param name="dopColor">Дополнительный цвет</param>
 
+
         private Doors doors;
 
         public Trolleybus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool num, bool antenna, bool windows)
@@ -68,6 +70,7 @@ namespace WindowsFormsTrolleybus
             Number = num;
             Antenna = antenna;
             Windows = windows;
+
             doors = new Doors();                           
 
         }
@@ -113,6 +116,7 @@ namespace WindowsFormsTrolleybus
                     break;
             }
         }
+
  public void FuncAddDoor()
         {
             doors.AddDoor();
@@ -121,16 +125,19 @@ namespace WindowsFormsTrolleybus
         {
             doors.DeleteDoor();
         }
+
         public void DrawTrolleybus(Graphics g)
         {
             Pen blackpen = new Pen(Color.Black);
             Brush brownBrush = new SolidBrush(Color.Brown);
             Brush grayBrush = new SolidBrush(Color.Gray);
             Brush blackBrush = new SolidBrush(Color.Black);
+
             Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
             Brush darkorangeBrush = new SolidBrush(Color.DarkOrange);
             Brush yellowBrush = new SolidBrush(Color.Yellow);
             Brush whiteBrush = new SolidBrush(Color.White);
+
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
 
             //кузов
@@ -157,6 +164,7 @@ namespace WindowsFormsTrolleybus
             {
                 g.DrawRectangle(blackpen, _startPosX + 2, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 2, _startPosY + 20, 5, 5);
+
                 g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.DrawRectangle(blackpen, _startPosX + 18, _startPosY + 20, 5, 5);
@@ -178,11 +186,13 @@ namespace WindowsFormsTrolleybus
             //antenna
             if (Antenna)
             {
+
                 g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
             }
+
 
             //door
 
@@ -197,9 +207,11 @@ namespace WindowsFormsTrolleybus
 
             Pen redpen = new Pen(Color.Red);
 
+
             //number
             if (Number)
             {
+
                 g.DrawRectangle(blackpen, _startPosX + 84, _startPosY + 44, 10, 7);
                 g.FillRectangle(whiteBrush, _startPosX + 84, _startPosY + 45, 10, 6);
                 g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 87, _startPosY + 50);
