@@ -17,6 +17,8 @@ namespace WindowsFormsTrolleybus
         /// </summary>
         MultiLevelStation station;
 
+        FormBusConfig form;
+
         /// <summary>
         /// Количество уровней-парковок
         /// </summary>
@@ -46,49 +48,6 @@ namespace WindowsFormsTrolleybus
             }
         }
 
-        //припарковать автобус
-        private void buttonSetBus_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var bus = new Bus(100, 1000, dialog.Color);
-                    int place = station[listBoxLevels.SelectedIndex] + bus;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
-        }
-        //припарковать троллейбус
-        private void buttonSetTrolleybus_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var bus = new Trolleybus(100, 1000, dialog.Color, dialogDop.Color,
-                       false, true, true);
-                        int place = station[listBoxLevels.SelectedIndex] + bus;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
         //take
         private void buttonTakeBus_Click(object sender, EventArgs e)
         {
@@ -126,6 +85,29 @@ namespace WindowsFormsTrolleybus
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void buttonSetBus_Click_1(object sender, EventArgs e)
+        {
+            form = new FormBusConfig();
+            form.AddEvent(AddBus);
+            form.Show();
+        }
+
+        private void AddBus(ITransport bus)
+        {
+            if (bus != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = station[listBoxLevels.SelectedIndex] + bus;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Автобус не удалось поставить");
+                }
+            }
         }
     }
 }
