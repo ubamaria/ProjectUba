@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 
 namespace WindowsFormsTrolleybus
 {
@@ -35,12 +35,24 @@ namespace WindowsFormsTrolleybus
             //window
             if (Windows)
             {
+
                 g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
 
 
                 g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
+            }            
+
+            Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
+
+            if (Antenna)
+            {
+                //antenna
+                g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
+                g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
+                g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
+                g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
             }
 
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
@@ -67,7 +79,6 @@ namespace WindowsFormsTrolleybus
                 g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 91, _startPosY + 50);
                 g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 89, _startPosY + 47);
             }
-
         }
     }
 }
