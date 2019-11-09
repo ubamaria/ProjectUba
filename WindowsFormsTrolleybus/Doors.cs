@@ -38,32 +38,6 @@ namespace WindowsFormsTrolleybus
                 g.DrawRectangle(blackpen, _startPosX + 26 + 2 * sizedoor * i, _startPosY + 17, 5, 28);
                 g.FillRectangle(darkblueBrush, _startPosX + 26 + 2 * sizedoor * i, _startPosY + 17, 5, 28);
             }
-
-            //switch (count)
-            //{
-            //    case 1:
-            //        g.DrawRectangle(blackpen, _startPosX + 26, _startPosY + 17, 5, 28);
-            //        g.FillRectangle(darkblueBrush, _startPosX + 26, _startPosY + 17, 5, 28);
-            //        break;
-            //    case 2:
-            //        g.DrawRectangle(blackpen, _startPosX + 26, _startPosY + 17, 5, 28);
-            //        g.FillRectangle(darkblueBrush, _startPosX + 26, _startPosY + 17, 5, 28);
-
-            //        g.DrawRectangle(blackpen, _startPosX + 42, _startPosY + 17, 5, 28);
-            //        g.FillRectangle(darkblueBrush, _startPosX + 42, _startPosY + 17, 5, 28);
-            //        break;
-            //    case 3:
-            //        g.DrawRectangle(blackpen, _startPosX + 26, _startPosY + 17, 5, 28);
-            //        g.FillRectangle(darkblueBrush, _startPosX + 26, _startPosY + 17, 5, 28);
-
-            //        g.DrawRectangle(blackpen, _startPosX + 42, _startPosY + 17, 5, 28);
-            //        g.FillRectangle(darkblueBrush, _startPosX + 42, _startPosY + 17, 5, 28);
-
-            //        g.DrawRectangle(blackpen, _startPosX + 58, _startPosY + 17, 5, 28);
-            //        g.FillRectangle(darkblueBrush, _startPosX + 58, _startPosY + 17, 5, 28);
-            //        break;
-            //}         
-
         }
     }
 }
