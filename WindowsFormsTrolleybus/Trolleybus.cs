@@ -64,7 +64,6 @@ namespace WindowsFormsTrolleybus
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
             }
         }
-
         public void SetDopColor(Color color)
         {
             DopColor = color;

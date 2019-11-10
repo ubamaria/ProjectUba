@@ -19,7 +19,7 @@ namespace WindowsFormsTrolleybus
         public FormBusConfig()
         {
             InitializeComponent();
-            panelblack.MouseDown += panelColor_MouseDown;
+            panelBlack.MouseDown += panelColor_MouseDown;
             panelorange.MouseDown += panelColor_MouseDown;
             panelgray.MouseDown += panelColor_MouseDown;
             panelgreen.MouseDown += panelColor_MouseDown;
@@ -31,6 +31,7 @@ namespace WindowsFormsTrolleybus
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
 
         }
+
         private void DrawBus()
         {
             if (bus != null)
@@ -61,10 +62,12 @@ namespace WindowsFormsTrolleybus
 DragDropEffects.Copy);
         }
 
-        private void labelTrolleybus_MouseDown(object sender, EventArgs e)
+        private void labelTrolleybus_MouseDown(object sender, MouseEventArgs e)
         {
+
             labelTrolleybus.DoDragDrop(labelTrolleybus.Text, DragDropEffects.Move |
 DragDropEffects.Copy);
+
         }
 
         private void panelBus_DragEnter(object sender, DragEventArgs e)
@@ -98,8 +101,8 @@ DragDropEffects.Copy);
         {
             (sender as Control).DoDragDrop((sender as Control).BackColor,
             DragDropEffects.Move | DragDropEffects.Copy);
-
         }
+
         private void labelMainColor_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(Color)))
@@ -134,10 +137,25 @@ DragDropEffects.Copy);
             }
 
         }
+
+        private void labelDopColor_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(Color)))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             eventAddBus?.Invoke(bus);
             Close();
         }
+
     }
 }

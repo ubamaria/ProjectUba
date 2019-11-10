@@ -43,7 +43,7 @@
             this.panelblue = new System.Windows.Forms.Panel();
             this.panelgreen = new System.Windows.Forms.Panel();
             this.panelwhite = new System.Windows.Forms.Panel();
-            this.panelblack = new System.Windows.Forms.Panel();
+            this.panelBlack = new System.Windows.Forms.Panel();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).BeginInit();
@@ -55,9 +55,9 @@
             // pictureBoxBus
             // 
             this.pictureBoxBus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxBus.Location = new System.Drawing.Point(13, 21);
+            this.pictureBoxBus.Location = new System.Drawing.Point(23, 19);
             this.pictureBoxBus.Name = "pictureBoxBus";
-            this.pictureBoxBus.Size = new System.Drawing.Size(186, 110);
+            this.pictureBoxBus.Size = new System.Drawing.Size(166, 98);
             this.pictureBoxBus.TabIndex = 0;
             this.pictureBoxBus.TabStop = false;
             // 
@@ -80,6 +80,7 @@
             this.labelTrolleybus.Size = new System.Drawing.Size(135, 41);
             this.labelTrolleybus.TabIndex = 1;
             this.labelTrolleybus.Text = "Троллейбус";
+            this.labelTrolleybus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTrolleybus_MouseDown);
             // 
             // labelBus
             // 
@@ -89,6 +90,7 @@
             this.labelBus.Size = new System.Drawing.Size(135, 42);
             this.labelBus.TabIndex = 0;
             this.labelBus.Text = "Обычный автобус";
+            this.labelBus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelBus_MouseDown);
             // 
             // panelBus
             // 
@@ -98,13 +100,14 @@
             this.panelBus.Controls.Add(this.pictureBoxBus);
             this.panelBus.Location = new System.Drawing.Point(208, 36);
             this.panelBus.Name = "panelBus";
-            this.panelBus.Size = new System.Drawing.Size(217, 286);
+            this.panelBus.Size = new System.Drawing.Size(202, 286);
             this.panelBus.TabIndex = 2;
             this.panelBus.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelBus_DragDrop);
             this.panelBus.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelBus_DragEnter);
             // 
             // labelDopColor
             // 
+            this.labelDopColor.AllowDrop = true;
             this.labelDopColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDopColor.Location = new System.Drawing.Point(26, 209);
             this.labelDopColor.Name = "labelDopColor";
@@ -112,9 +115,11 @@
             this.labelDopColor.TabIndex = 2;
             this.labelDopColor.Text = "Доп. цвет";
             this.labelDopColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelDopColor_DragDrop);
+            this.labelDopColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelDopColor_DragEnter);
             // 
             // labelMainColor
             // 
+            this.labelMainColor.AllowDrop = true;
             this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelMainColor.Location = new System.Drawing.Point(26, 152);
             this.labelMainColor.Name = "labelMainColor";
@@ -133,7 +138,7 @@
             this.groupBox2.Controls.Add(this.panelblue);
             this.groupBox2.Controls.Add(this.panelgreen);
             this.groupBox2.Controls.Add(this.panelwhite);
-            this.groupBox2.Controls.Add(this.panelblack);
+            this.groupBox2.Controls.Add(this.panelBlack);
             this.groupBox2.Location = new System.Drawing.Point(450, 36);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(158, 286);
@@ -197,13 +202,13 @@
             this.panelwhite.Size = new System.Drawing.Size(40, 39);
             this.panelwhite.TabIndex = 1;
             // 
-            // panelblack
+            // panelBlack
             // 
-            this.panelblack.BackColor = System.Drawing.Color.Black;
-            this.panelblack.Location = new System.Drawing.Point(19, 36);
-            this.panelblack.Name = "panelblack";
-            this.panelblack.Size = new System.Drawing.Size(40, 39);
-            this.panelblack.TabIndex = 0;
+            this.panelBlack.BackColor = System.Drawing.Color.Black;
+            this.panelBlack.Location = new System.Drawing.Point(19, 36);
+            this.panelBlack.Name = "panelBlack";
+            this.panelBlack.Size = new System.Drawing.Size(40, 39);
+            this.panelBlack.TabIndex = 0;
             // 
             // buttonAdd
             // 
@@ -236,7 +241,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FormBusConfig";
             this.Text = "FormBusConfig";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panelBus.ResumeLayout(false);
@@ -260,7 +264,7 @@
         private System.Windows.Forms.Panel panelblue;
         private System.Windows.Forms.Panel panelgreen;
         private System.Windows.Forms.Panel panelwhite;
-        private System.Windows.Forms.Panel panelblack;
+        private System.Windows.Forms.Panel panelBlack;
         private System.Windows.Forms.Label labelDopColor;
         private System.Windows.Forms.Label labelMainColor;
         private System.Windows.Forms.Button buttonAdd;
