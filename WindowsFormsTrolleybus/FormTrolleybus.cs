@@ -13,6 +13,7 @@ namespace WindowsFormsTrolleybus
     public partial class FormTrolleybus : Form
     {
         private ITransport trolleybus;
+        private IDoor door;
 
         public FormTrolleybus()
         {
@@ -26,7 +27,7 @@ namespace WindowsFormsTrolleybus
             trolleybus.DrawBus(gr);
             pictureBoxTrolleybus.Image = bmp;
         }
-
+        //создать автобус
         private void buttonCreateBus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -34,7 +35,7 @@ namespace WindowsFormsTrolleybus
             trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
             Draw();
         }
-
+        //создать троллейбус
         private void buttonCreateTrolleybus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -61,6 +62,6 @@ namespace WindowsFormsTrolleybus
                     break;
             }
             Draw();
-        } 
+        }
     }
 }
