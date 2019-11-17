@@ -13,7 +13,6 @@ namespace WindowsFormsTrolleybus
     public partial class FormTrolleybus : Form
     {
         private ITransport trolleybus;
-        private IDoor door;
 
         public FormTrolleybus()
         {

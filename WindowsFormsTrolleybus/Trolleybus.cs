@@ -54,7 +54,7 @@ namespace WindowsFormsTrolleybus
                     DoorType = DoorEnum.One;
                     break;
             }
-
+            
             IDoor door;
             switch (DoorType)
             {
