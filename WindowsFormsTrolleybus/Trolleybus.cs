@@ -1,4 +1,3 @@
-﻿using System;
 using System.Drawing;
 
 namespace WindowsFormsTrolleybus
@@ -75,9 +74,12 @@ namespace WindowsFormsTrolleybus
             door.DrawDoors(g, DopColor);
 
 
+            base.DrawBus(g);
+
             //window
             if (Windows)
             {
+
                 g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
 
@@ -103,6 +105,7 @@ namespace WindowsFormsTrolleybus
             //number
             if (Number)
             {
+
                 g.DrawRectangle(blackpen, _startPosX + 84, _startPosY + 44, 10, 7);
                 g.FillRectangle(whiteBrush, _startPosX + 84, _startPosY + 45, 10, 6);
                 g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 87, _startPosY + 50);

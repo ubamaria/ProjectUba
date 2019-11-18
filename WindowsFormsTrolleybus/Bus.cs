@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -76,6 +75,7 @@ namespace WindowsFormsTrolleybus
             Brush yellowBrush = new SolidBrush(Color.Yellow);
             Brush orangeBrush = new SolidBrush(MainColor);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
+
 
             //кузов
             g.DrawRectangle(blackpen, _startPosX, _startPosY + 10, trolbusWidth - 10, trolbusHeight - 20);
