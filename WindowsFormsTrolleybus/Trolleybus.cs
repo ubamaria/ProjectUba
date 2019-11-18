@@ -1,4 +1,10 @@
-﻿using System.Drawing;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace WindowsFormsTrolleybus
 {
@@ -51,6 +57,10 @@ namespace WindowsFormsTrolleybus
         /// <param name="weight">Вес троллейбуса</param>
         /// <param name="mainColor">Основной цвет</param>
         /// <param name="dopColor">Дополнительный цвет</param>
+
+
+        private Doors doors;
+
         public Trolleybus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool num, bool antenna, bool windows)
         {
             MaxSpeed = maxSpeed;
@@ -60,6 +70,9 @@ namespace WindowsFormsTrolleybus
             Number = num;
             Antenna = antenna;
             Windows = windows;
+
+            doors = new Doors();                           
+
         }
         //установка позиций
         public void SetPosition(int x, int y, int width, int height)
@@ -104,16 +117,27 @@ namespace WindowsFormsTrolleybus
             }
         }
 
+ public void FuncAddDoor()
+        {
+            doors.AddDoor();
+        }
+        public void FuncDeleteDoor()
+        {
+            doors.DeleteDoor();
+        }
+
         public void DrawTrolleybus(Graphics g)
         {
             Pen blackpen = new Pen(Color.Black);
             Brush brownBrush = new SolidBrush(Color.Brown);
             Brush grayBrush = new SolidBrush(Color.Gray);
             Brush blackBrush = new SolidBrush(Color.Black);
-            Brush blueBrush = new SolidBrush(DopColor);
+
+            Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
             Brush darkorangeBrush = new SolidBrush(Color.DarkOrange);
             Brush yellowBrush = new SolidBrush(Color.Yellow);
-            Brush whiteBrush = new SolidBrush(MainColor);
+            Brush whiteBrush = new SolidBrush(Color.White);
+
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
 
             //кузов
@@ -143,38 +167,36 @@ namespace WindowsFormsTrolleybus
 
                 g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
-
                 g.DrawRectangle(blackpen, _startPosX + 18, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 18, _startPosY + 20, 5, 5);
-
                 g.DrawRectangle(blackpen, _startPosX + 34, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 34, _startPosY + 20, 5, 5);
-
                 g.DrawRectangle(blackpen, _startPosX + 50, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 50, _startPosY + 20, 5, 5);
-
                 g.DrawRectangle(blackpen, _startPosX + 66, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 66, _startPosY + 20, 5, 5);
-
                 g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
-            }
 
-                //водительское окно
                 g.DrawRectangle(blackpen, _startPosX + 81, _startPosY + 15, 13, 23);
                 g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
-            
-
+            }
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
 
+            //antenna
             if (Antenna)
             {
-                //antenna
+
                 g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
             }
+
+
+            //door
+
+            doors.DrawDoors(g, _startPosX, _startPosY);
 
             //fari
             g.DrawRectangle(blackpen, _startPosX - 3, _startPosY + 40, 4, 2);
@@ -185,9 +207,11 @@ namespace WindowsFormsTrolleybus
 
             Pen redpen = new Pen(Color.Red);
 
+
+            //number
             if (Number)
             {
-                //number
+
                 g.DrawRectangle(blackpen, _startPosX + 84, _startPosY + 44, 10, 7);
                 g.FillRectangle(whiteBrush, _startPosX + 84, _startPosY + 45, 10, 6);
                 g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 87, _startPosY + 50);

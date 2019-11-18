@@ -18,7 +18,6 @@ namespace WindowsFormsTrolleybus
         {
             InitializeComponent();
         }
-
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
@@ -27,10 +26,12 @@ namespace WindowsFormsTrolleybus
             pictureBoxTrolleybus.Image = bmp;
         }
 
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.White, Color.LightSkyBlue, true, true, true);
+            trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, true);
+
             trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
             Draw();
         }
@@ -54,5 +55,19 @@ namespace WindowsFormsTrolleybus
             }
             Draw();
         }
+
+
+        private void buttonAddDoor_Click(object sender, EventArgs e)
+        {
+            trolleybus.FuncAddDoor();
+            Draw();
+        }
+
+        private void buttonDeleteDoor_Click(object sender, EventArgs e)
+        {
+            trolleybus.FuncDeleteDoor();
+            Draw();
+        }
+
     }
 }
