@@ -8,20 +8,20 @@ namespace WindowsFormsTrolleybus
 {
     class MultiLevelStation
     {
-        List<BusStation<ITransport>> stationStages;
+        List<BusStation<ITransport,IDoor>> stationStages;
 
         private const int countPlaces = 20;
 
         public MultiLevelStation(int countStages, int pictureWidth, int pictureHeight)
         {
-            stationStages = new List<BusStation<ITransport>>();
+            stationStages = new List<BusStation<ITransport, IDoor>>();
             for (int i = 0; i < countStages; ++i)
             {
-                stationStages.Add(new BusStation<ITransport>(countPlaces, pictureWidth,
+                stationStages.Add(new BusStation<ITransport, IDoor>(countPlaces, pictureWidth,
                pictureHeight));
             }
         }
-        public BusStation<ITransport> this[int ind]
+        public BusStation<ITransport, IDoor> this[int ind]
         {
             get
             {
