@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,10 +24,11 @@ namespace WindowsFormsTrolleybus
         /// Количество уровней-парковок
         /// </summary>
         private const int countLevel = 5;
-
+        private Logger logger;
         public FormBusStation()
         {
             InitializeComponent();
+            logger = LogManager.GetCurrentClassLogger();
             station = new MultiLevelStation(countLevel, pictureBoxStation.Width, pictureBoxStation.Height);
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
@@ -34,7 +36,6 @@ namespace WindowsFormsTrolleybus
                 listBoxLevels.Items.Add("Уровень " + (i + 1));
             }
             listBoxLevels.SelectedIndex = 0;
-
         }
 
         private void Draw()
@@ -55,25 +56,42 @@ namespace WindowsFormsTrolleybus
             {
                 if (maskedTextBox1.Text != "")
                 {
-                    int a = Convert.ToInt32(maskedTextBox1.Text) - 1;
-                    var bus = station[listBoxLevels.SelectedIndex] - a;
-                    if (bus != null)
+                    try
                     {
+                        
+                        var bus = station[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox1.Text);
+                        if (bus != null)
+                        {
+                            Bitmap bmp = new Bitmap(pictureBoxTakeBus.Width,
+                           pictureBoxTakeBus.Height);
+                            Graphics gr = Graphics.FromImage(bmp);
+                            bus.SetPosition(5, 5, pictureBoxTakeBus.Width,
+                           pictureBoxTakeBus.Height);
+                            bus.DrawBus(gr);
+                            pictureBoxTakeBus.Image = bmp;
+                        }
+                        else
+                        {
+                            Bitmap bmp = new Bitmap(pictureBoxTakeBus.Width,
+                           pictureBoxTakeBus.Height);
+                            pictureBoxTakeBus.Image = bmp;
+                        }
+                        Draw();
+                    }
+                    catch (BusStationNotFoundException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                         Bitmap bmp = new Bitmap(pictureBoxTakeBus.Width,
                        pictureBoxTakeBus.Height);
-                        Graphics gr = Graphics.FromImage(bmp);
-                        bus.SetPosition(5, 5, pictureBoxTakeBus.Width,
-                       pictureBoxTakeBus.Height);
-                        bus.DrawBus(gr);
                         pictureBoxTakeBus.Image = bmp;
+                        logger.Error("Не найдено");
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeBus.Width,
-                       pictureBoxTakeBus.Height);
-                        pictureBoxTakeBus.Image = bmp;
+                        MessageBox.Show(ex.Message, "Неизвестная ошибка",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    Draw();
                 }
             }
         }
@@ -98,14 +116,23 @@ namespace WindowsFormsTrolleybus
         {
             if (bus != null && listBoxLevels.SelectedIndex > -1)
             {
-                int place = station[listBoxLevels.SelectedIndex] + bus;
-                if (place > -1)
+                try
                 {
+                    int place = station[listBoxLevels.SelectedIndex] + bus;
+                    logger.Info("Добавлен автобус " + bus.ToString() + " на место " + place);
                     Draw();
                 }
-                else
+                catch (BusStationOverflowException ex)
                 {
-                    MessageBox.Show("Автобус не удалось поставить");
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                    logger.Error("Переполнение");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Error("Неизвестная ошибка");
                 }
             }
         }
@@ -114,32 +141,44 @@ namespace WindowsFormsTrolleybus
         {
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (station.SaveData(saveFileDialog1.FileName))
+                try
                 {
+                    station.SaveData(saveFileDialog1.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат",
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Error("Неизвестная ошибка при сохранении");
                 }
             }
         }
 
-        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+            private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (station.LoadData(openFileDialog1.FileName))
+                try
                 {
+                    station.LoadData(openFileDialog1.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-MessageBoxIcon.Information);
+                    MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
                 }
-                else
+                catch (BusStationOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
+                    logger.Error("Занятое место");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Error("Неизвестная ошибка при сохранении");
                 }
                 Draw();
             }

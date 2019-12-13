@@ -53,7 +53,7 @@ namespace WindowsFormsTrolleybus
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -69,26 +69,29 @@ namespace WindowsFormsTrolleybus
                     sw.WriteLine("Level");
                     for (int i = 0; i < countPlaces; i++)
                     {
-                        var bus = level[i];
-                        if (bus != null)
+                        try
                         {
-                            //если место не пустое
-                            //Записываем тип мшаины
-                            if (bus.GetType().Name == "Bus")
+                            var bus = level[i];
+                            if (bus != null)
                             {
-                                sw.Write(i + ":Bus:");
+                                //если место не пустое
+                                //Записываем тип мшаины
+                                if (bus.GetType().Name == "Bus")
+                                {
+                                    sw.Write(i + ":Bus:");
+                                }
+                                if (bus.GetType().Name == "Trolleybus")
+                                {
+                                    sw.Write(i + ":Trolleybus:");
+                                }
+                                sw.WriteLine(bus);
                             }
-                            if (bus.GetType().Name == "Trolleybus")
-                            {
-                                sw.Write(i + ":Trolleybus:");
-                            }
-                            sw.WriteLine(bus);
                         }
-                    }
+                        finally { }
+                    } 
+                
                 }
-
             }
-            return true;
         }
 
         /// <summary>
@@ -96,18 +99,17 @@ namespace WindowsFormsTrolleybus
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
-            int counter = -1;
-            ITransport bus = null;
+
             using (StreamReader sr = new StreamReader(filename))
             {
                 string str = sr.ReadLine();
-               
+
                 if (str.Contains("CountLeveles"))
                 {
                     //считываем количество уровней
@@ -121,9 +123,10 @@ namespace WindowsFormsTrolleybus
                 else
                 {
                     //если нет такой записи, то это не те данные
-                    return false;
+                    throw new Exception("Неверный формат файла");
                 }
-
+                int counter = -1;
+                ITransport bus = null;
                 while ((str = sr.ReadLine()) != null)
                 {
                     //идем по считанным записям
@@ -153,7 +156,6 @@ namespace WindowsFormsTrolleybus
                         stationStages[counter][Convert.ToInt32(splitStr[0])] = bus;
                     }
                 }
-                return true;
             }
         }
     }

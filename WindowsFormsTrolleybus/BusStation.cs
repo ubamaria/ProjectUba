@@ -63,7 +63,7 @@ namespace WindowsFormsTrolleybus
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new BusStationOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -95,7 +95,7 @@ namespace WindowsFormsTrolleybus
                 p._places.Remove(index);
                 return trolleybus;
             }
-            return null;
+            throw new BusStationNotFoundException(index);
         }
 
         /// <summary>
@@ -164,6 +164,10 @@ namespace WindowsFormsTrolleybus
                     _places.Add(ind, value);
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5
                     * _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                }
+                else
+                {
+                    throw new BusStationOccupiedPlaceException(ind);
                 }
             }
 
