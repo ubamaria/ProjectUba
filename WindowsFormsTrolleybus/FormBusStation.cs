@@ -58,9 +58,9 @@ namespace WindowsFormsTrolleybus
         //take
         private void buttonTakeBus_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox1.Text != "")
+            if (maskedTextBoxPlace.Text != "")
             {
-                int a = Convert.ToInt32(maskedTextBox1.Text) - 1;
+                int a = Convert.ToInt32(maskedTextBoxPlace.Text) - 1;
                 var bus = station - a;
                 if (bus != null)
                 {
@@ -83,9 +83,5 @@ namespace WindowsFormsTrolleybus
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
