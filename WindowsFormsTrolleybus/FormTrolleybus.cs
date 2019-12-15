@@ -27,18 +27,20 @@ namespace WindowsFormsTrolleybus
             pictureBoxTrolleybus.Image = bmp;
         }
 
-        private void buttonCreateTrolleybus_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.White, Color.Yellow, true, true, true);
-            trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
-            Draw();
-        }
 
         private void buttonCreateBus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
             trolleybus = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Orange);
+            trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
+            Draw();
+        }
+
+
+        private void buttonCreateTrolleybus_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            trolleybus = new Trolleybus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.White, Color.Yellow, true, true, true);
             trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
             Draw();
         }
@@ -61,8 +63,7 @@ namespace WindowsFormsTrolleybus
                     break;
             }
             Draw();
-        }
 
-
+        } 
     }
 }
