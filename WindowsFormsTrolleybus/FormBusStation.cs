@@ -54,12 +54,12 @@ namespace WindowsFormsTrolleybus
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
-                if (maskedTextBox1.Text != "")
+                if (maskedTextBoxPlace.Text != "")
                 {
                     try
                     {
                         
-                        var bus = station[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox1.Text);
+                        var bus = station[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxPlace.Text);
                         if (bus != null)
                         {
                             Bitmap bmp = new Bitmap(pictureBoxTakeBus.Width,
@@ -139,14 +139,14 @@ namespace WindowsFormsTrolleybus
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    station.SaveData(saveFileDialog1.FileName);
+                    station.SaveData(saveFileDialog.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
      MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
+                    logger.Info("Сохранено в файл " + saveFileDialog.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -159,14 +159,14 @@ namespace WindowsFormsTrolleybus
 
             private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    station.LoadData(openFileDialog1.FileName);
+                    station.LoadData(openFileDialog.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
+                    logger.Info("Загружено из файла " + openFileDialog.FileName);
                 }
                 catch (BusStationOccupiedPlaceException ex)
                 {
