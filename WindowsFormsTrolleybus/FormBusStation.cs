@@ -53,9 +53,9 @@ namespace WindowsFormsTrolleybus
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
-                if (maskedTextBox1.Text != "")
+                if (maskedTextBoxPlace.Text != "")
                 {
-                    int a = Convert.ToInt32(maskedTextBox1.Text) - 1;
+                    int a = Convert.ToInt32(maskedTextBoxPlace.Text) - 1;
                     var bus = station[listBoxLevels.SelectedIndex] - a;
                     if (bus != null)
                     {
