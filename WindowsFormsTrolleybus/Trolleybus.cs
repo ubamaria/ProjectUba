@@ -5,11 +5,11 @@ namespace WindowsFormsTrolleybus
 {
     public class Trolleybus : Bus
     {
+
         public Color DopColor { private set; get; }
         public bool Antenna { private set; get; }
         public bool Windows { private set; get; }
         public bool Number { private set; get; }
-
 
         /// <summary>
         /// Конструктор
@@ -19,7 +19,9 @@ namespace WindowsFormsTrolleybus
         /// <param name="mainColor">Основной цвет</param>
         /// <param name="dopColor">Дополнительный цвет</param>
         public Trolleybus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool num, bool antenna, bool windows) :
+
             base(maxSpeed, weight, mainColor)
+
         {
             DopColor = dopColor;
             Number = num;
