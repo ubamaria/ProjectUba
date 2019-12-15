@@ -77,7 +77,6 @@ namespace WindowsFormsTrolleybus
             Brush orangeBrush = new SolidBrush(MainColor);
             Brush darkblueBrush = new SolidBrush(Color.DarkBlue);
 
-
             //кузов
             g.DrawRectangle(blackpen, _startPosX, _startPosY + 10, trolbusWidth - 10, trolbusHeight - 20);
             g.FillRectangle(orangeBrush, _startPosX + 1, _startPosY + 11, trolbusWidth - 11, trolbusHeight - 22);
@@ -98,7 +97,7 @@ namespace WindowsFormsTrolleybus
             g.FillRectangle(darkblueBrush, _startPosX - 5, _startPosY + 45, 100, 5);
 
             //window
-           
+
             g.DrawRectangle(blackpen, _startPosX + 2, _startPosY + 20, 5, 5);
             g.FillRectangle(blueBrush, _startPosX + 2, _startPosY + 20, 5, 5);
             g.DrawRectangle(blackpen, _startPosX + 18, _startPosY + 20, 5, 5);
@@ -120,6 +119,7 @@ namespace WindowsFormsTrolleybus
 
             g.DrawRectangle(blackpen, _startPosX + 88, _startPosY + 40, 4, 2);
             g.FillRectangle(yellowBrush, _startPosX + 88, _startPosY + 40, 4, 2);
+
         }
     }
 }

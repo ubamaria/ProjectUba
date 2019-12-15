@@ -51,9 +51,11 @@ namespace WindowsFormsTrolleybus
         //take
         private void buttonTakeBus_Click(object sender, EventArgs e)
         {
+
             if (listBoxLevels.SelectedIndex > -1)
             {
                 if (maskedTextBoxPlace.Text != "")
+
                 {
                     int a = Convert.ToInt32(maskedTextBoxPlace.Text) - 1;
                     var bus = station[listBoxLevels.SelectedIndex] - a;
@@ -77,6 +79,7 @@ namespace WindowsFormsTrolleybus
                 }
             }
         }
+
         /// <summary>
         /// Метод обработки выбора элемента на listBoxLevels
         /// </summary>
@@ -109,5 +112,6 @@ namespace WindowsFormsTrolleybus
                 }
             }
         }
+
     }
 }
