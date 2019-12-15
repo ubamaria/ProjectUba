@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.pictureBoxBus = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxType = new System.Windows.Forms.GroupBox();
             this.labelTrolleybus = new System.Windows.Forms.Label();
             this.labelBus = new System.Windows.Forms.Label();
             this.panelBus = new System.Windows.Forms.Panel();
             this.labelDopColor = new System.Windows.Forms.Label();
             this.labelMainColor = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxColor = new System.Windows.Forms.GroupBox();
             this.panelorange = new System.Windows.Forms.Panel();
             this.panelgray = new System.Windows.Forms.Panel();
             this.panelyellow = new System.Windows.Forms.Panel();
@@ -47,9 +47,9 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxType.SuspendLayout();
             this.panelBus.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxColor.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxBus
@@ -61,16 +61,16 @@
             this.pictureBoxBus.TabIndex = 0;
             this.pictureBoxBus.TabStop = false;
             // 
-            // groupBox1
+            // groupBoxType
             // 
-            this.groupBox1.Controls.Add(this.labelTrolleybus);
-            this.groupBox1.Controls.Add(this.labelBus);
-            this.groupBox1.Location = new System.Drawing.Point(24, 36);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(168, 171);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Тип кузова";
+            this.groupBoxType.Controls.Add(this.labelTrolleybus);
+            this.groupBoxType.Controls.Add(this.labelBus);
+            this.groupBoxType.Location = new System.Drawing.Point(24, 36);
+            this.groupBoxType.Name = "groupBoxType";
+            this.groupBoxType.Size = new System.Drawing.Size(168, 171);
+            this.groupBoxType.TabIndex = 1;
+            this.groupBoxType.TabStop = false;
+            this.groupBoxType.Text = "Тип кузова";
             // 
             // labelTrolleybus
             // 
@@ -129,22 +129,22 @@
             this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
             this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
             // 
-            // groupBox2
+            // groupBoxColor
             // 
-            this.groupBox2.Controls.Add(this.panelorange);
-            this.groupBox2.Controls.Add(this.panelgray);
-            this.groupBox2.Controls.Add(this.panelyellow);
-            this.groupBox2.Controls.Add(this.panelred);
-            this.groupBox2.Controls.Add(this.panelblue);
-            this.groupBox2.Controls.Add(this.panelgreen);
-            this.groupBox2.Controls.Add(this.panelwhite);
-            this.groupBox2.Controls.Add(this.panelBlack);
-            this.groupBox2.Location = new System.Drawing.Point(450, 36);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(158, 286);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Цвета";
+            this.groupBoxColor.Controls.Add(this.panelorange);
+            this.groupBoxColor.Controls.Add(this.panelgray);
+            this.groupBoxColor.Controls.Add(this.panelyellow);
+            this.groupBoxColor.Controls.Add(this.panelred);
+            this.groupBoxColor.Controls.Add(this.panelblue);
+            this.groupBoxColor.Controls.Add(this.panelgreen);
+            this.groupBoxColor.Controls.Add(this.panelwhite);
+            this.groupBoxColor.Controls.Add(this.panelBlack);
+            this.groupBoxColor.Location = new System.Drawing.Point(450, 36);
+            this.groupBoxColor.Name = "groupBoxColor";
+            this.groupBoxColor.Size = new System.Drawing.Size(158, 286);
+            this.groupBoxColor.TabIndex = 3;
+            this.groupBoxColor.TabStop = false;
+            this.groupBoxColor.Text = "Цвета";
             // 
             // panelorange
             // 
@@ -236,15 +236,15 @@
             this.ClientSize = new System.Drawing.Size(620, 334);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxColor);
             this.Controls.Add(this.panelBus);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxType);
             this.Name = "FormBusConfig";
             this.Text = "FormBusConfig";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxType.ResumeLayout(false);
             this.panelBus.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.groupBoxColor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -252,11 +252,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxBus;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxType;
         private System.Windows.Forms.Label labelBus;
         private System.Windows.Forms.Label labelTrolleybus;
         private System.Windows.Forms.Panel panelBus;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxColor;
         private System.Windows.Forms.Panel panelorange;
         private System.Windows.Forms.Panel panelgray;
         private System.Windows.Forms.Panel panelyellow;
