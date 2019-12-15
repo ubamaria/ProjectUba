@@ -17,5 +17,6 @@ namespace WindowsFormsTrolleybus
 
         //отрисовка троллейбуса
         void DrawBus(Graphics g);
+
     }
 }
