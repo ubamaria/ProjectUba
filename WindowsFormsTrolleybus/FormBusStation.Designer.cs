@@ -35,6 +35,7 @@
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
             this.labelTake = new System.Windows.Forms.Label();
+
             this.labelLevel = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.buttonSetBus = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).BeginInit();
@@ -91,6 +93,7 @@
             this.pictureBoxTakeBus.TabStop = false;
             // 
             // maskedTextBoxPlace
+
             // 
             this.maskedTextBoxPlace.Location = new System.Drawing.Point(74, 48);
             this.maskedTextBoxPlace.Name = "maskedTextBoxPlace";
@@ -133,6 +136,7 @@
             this.listBoxLevels.Size = new System.Drawing.Size(156, 116);
             this.listBoxLevels.TabIndex = 5;
             this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+
             // 
             // buttonSetBus
             // 
@@ -221,6 +225,7 @@
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.PictureBox pictureBoxTakeBus;
         private System.Windows.Forms.Button buttonTakeBus;
+
         private System.Windows.Forms.Label labelLevel;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Button buttonSetBus;
@@ -230,5 +235,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+
     }
 }
