@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.pictureBoxTrolleybus = new System.Windows.Forms.PictureBox();
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonCreateBus = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonCreateTrolleybus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTrolleybus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,16 +47,16 @@
             this.pictureBoxTrolleybus.TabIndex = 0;
             this.pictureBoxTrolleybus.TabStop = false;
             // 
-            // buttonCreate
+            // buttonCreateBus
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(13, 13);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(100, 28);
-            this.buttonCreate.TabIndex = 3;
-            this.buttonCreate.Text = "Создать";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreateBus.Location = new System.Drawing.Point(13, 13);
+            this.buttonCreateBus.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCreateBus.Name = "buttonCreateBus";
+            this.buttonCreateBus.Size = new System.Drawing.Size(150, 28);
+            this.buttonCreateBus.TabIndex = 3;
+            this.buttonCreateBus.Text = "Создать автобус";
+            this.buttonCreateBus.UseVisualStyleBackColor = true;
+            this.buttonCreateBus.Click += new System.EventHandler(this.buttonCreateBus_Click);
             // 
             // buttonUp
             // 
@@ -110,16 +111,28 @@
             this.buttonLeft.UseWaitCursor = true;
             this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // buttonCreateTrolleybus
+            // 
+            this.buttonCreateTrolleybus.Location = new System.Drawing.Point(195, 13);
+            this.buttonCreateTrolleybus.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCreateTrolleybus.Name = "buttonCreateTrolleybus";
+            this.buttonCreateTrolleybus.Size = new System.Drawing.Size(219, 28);
+            this.buttonCreateTrolleybus.TabIndex = 11;
+            this.buttonCreateTrolleybus.Text = "Создать троллейбус";
+            this.buttonCreateTrolleybus.UseVisualStyleBackColor = true;
+            this.buttonCreateTrolleybus.Click += new System.EventHandler(this.buttonCreateTrolleybus_Click);
+            // 
             // FormTrolleybus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
+            this.Controls.Add(this.buttonCreateTrolleybus);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.buttonCreateBus);
             this.Controls.Add(this.pictureBoxTrolleybus);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTrolleybus";
@@ -132,11 +145,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxTrolleybus;
-        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.Button buttonCreateBus;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.Button buttonCreateTrolleybus;
     }
 }
 
