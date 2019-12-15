@@ -83,6 +83,7 @@ namespace WindowsFormsTrolleybus
 
         }
 
+
         private void buttonCompare_Click(object sender, EventArgs e)
         {
             if (maskedTextBoxCompare.Text != "")
@@ -101,6 +102,7 @@ namespace WindowsFormsTrolleybus
                 }
             }
         }
+
 
     }
 }
