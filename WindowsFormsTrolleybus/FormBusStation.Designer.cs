@@ -157,5 +157,6 @@
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.PictureBox pictureBoxTakeBus;
         private System.Windows.Forms.Button buttonTakeBus;
+        
     }
 }
