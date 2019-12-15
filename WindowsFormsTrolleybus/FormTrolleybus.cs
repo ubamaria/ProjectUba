@@ -27,6 +27,7 @@ namespace WindowsFormsTrolleybus
             pictureBoxTrolleybus.Image = bmp;
         }
 
+
         private void buttonCreateBus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -34,6 +35,7 @@ namespace WindowsFormsTrolleybus
             trolleybus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTrolleybus.Width, pictureBoxTrolleybus.Height);
             Draw();
         }
+
 
         private void buttonCreateTrolleybus_Click(object sender, EventArgs e)
         {
@@ -61,6 +63,7 @@ namespace WindowsFormsTrolleybus
                     break;
             }
             Draw();
+
         } 
     }
 }
