@@ -58,9 +58,9 @@ namespace WindowsFormsTrolleybus
         //take
         private void buttonTakeBus_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox1.Text != "")
+            if (maskedTextBoxPlace.Text != "")
             {
-                int a = Convert.ToInt32(maskedTextBox1.Text) - 1;
+                int a = Convert.ToInt32(maskedTextBoxPlace.Text) - 1;
                 var bus = station - a;
                 if (bus != null)
                 {
@@ -85,19 +85,19 @@ namespace WindowsFormsTrolleybus
 
         private void buttonCompare_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox2.Text != "")
+            if (maskedTextBoxCompare.Text != "")
             {
-                if (station >= Convert.ToInt32(maskedTextBox2.Text))
+                if (station >= Convert.ToInt32(maskedTextBoxCompare.Text))
                 {
-                    label3.Text = "Кол-во транспорта > " + maskedTextBox2.Text;
+                    label3.Text = "Кол-во транспорта > " + maskedTextBoxCompare.Text;
                 }
-                else if (station <= Convert.ToInt32(maskedTextBox2.Text))
+                else if (station <= Convert.ToInt32(maskedTextBoxCompare.Text))
                 {
-                    label3.Text = "Кол-во транспорта < " + maskedTextBox2.Text;
+                    label3.Text = "Кол-во транспорта < " + maskedTextBoxCompare.Text;
                 }
                 else 
                 {
-                    label3.Text = "Кол-во транспорта = " + maskedTextBox2.Text;
+                    label3.Text = "Кол-во транспорта = " + maskedTextBoxCompare.Text;
                 }
             }
         }

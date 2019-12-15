@@ -34,11 +34,11 @@
             this.maskedTextBox = new System.Windows.Forms.GroupBox();
             this.buttonTakeBus = new System.Windows.Forms.Button();
             this.pictureBoxTakeBus = new System.Windows.Forms.PictureBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
+            this.labelPlace = new System.Windows.Forms.Label();
+            this.labelTake = new System.Windows.Forms.Label();
             this.buttonCompare = new System.Windows.Forms.Button();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxCompare = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBox.SuspendLayout();
@@ -78,9 +78,9 @@
             // 
             this.maskedTextBox.Controls.Add(this.buttonTakeBus);
             this.maskedTextBox.Controls.Add(this.pictureBoxTakeBus);
-            this.maskedTextBox.Controls.Add(this.maskedTextBox1);
-            this.maskedTextBox.Controls.Add(this.label2);
-            this.maskedTextBox.Controls.Add(this.label1);
+            this.maskedTextBox.Controls.Add(this.maskedTextBoxPlace);
+            this.maskedTextBox.Controls.Add(this.labelPlace);
+            this.maskedTextBox.Controls.Add(this.labelTake);
             this.maskedTextBox.Location = new System.Drawing.Point(1149, 353);
             this.maskedTextBox.Name = "maskedTextBox";
             this.maskedTextBox.Size = new System.Drawing.Size(171, 233);
@@ -105,30 +105,30 @@
             this.pictureBoxTakeBus.TabIndex = 0;
             this.pictureBoxTakeBus.TabStop = false;
             // 
-            // maskedTextBox1
+            // maskedTextBoxPlace
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(74, 48);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(55, 22);
-            this.maskedTextBox1.TabIndex = 5;
+            this.maskedTextBoxPlace.Location = new System.Drawing.Point(74, 48);
+            this.maskedTextBoxPlace.Name = "maskedTextBoxPlace";
+            this.maskedTextBoxPlace.Size = new System.Drawing.Size(55, 22);
+            this.maskedTextBoxPlace.TabIndex = 5;
             // 
-            // label2
+            // labelPlace
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Место:";
+            this.labelPlace.AutoSize = true;
+            this.labelPlace.Location = new System.Drawing.Point(15, 51);
+            this.labelPlace.Name = "labelPlace";
+            this.labelPlace.Size = new System.Drawing.Size(53, 17);
+            this.labelPlace.TabIndex = 6;
+            this.labelPlace.Text = "Место:";
             // 
-            // label1
+            // labelTake
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Забрать автобус";
+            this.labelTake.AutoSize = true;
+            this.labelTake.Location = new System.Drawing.Point(24, 18);
+            this.labelTake.Name = "labelTake";
+            this.labelTake.Size = new System.Drawing.Size(119, 17);
+            this.labelTake.TabIndex = 4;
+            this.labelTake.Text = "Забрать автобус";
             // 
             // buttonCompare
             // 
@@ -140,12 +140,12 @@
             this.buttonCompare.UseVisualStyleBackColor = true;
             this.buttonCompare.Click += new System.EventHandler(this.buttonCompare_Click);
             // 
-            // maskedTextBox2
+            // maskedTextBoxCompare
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(1204, 278);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(55, 22);
-            this.maskedTextBox2.TabIndex = 6;
+            this.maskedTextBoxCompare.Location = new System.Drawing.Point(1204, 278);
+            this.maskedTextBoxCompare.Name = "maskedTextBoxCompare";
+            this.maskedTextBoxCompare.Size = new System.Drawing.Size(55, 22);
+            this.maskedTextBoxCompare.TabIndex = 6;
             // 
             // label3
             // 
@@ -161,7 +161,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 615);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.maskedTextBoxCompare);
             this.Controls.Add(this.buttonCompare);
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.buttonSetTrolleybus);
@@ -184,13 +184,13 @@
         private System.Windows.Forms.Button buttonSetBus;
         private System.Windows.Forms.Button buttonSetTrolleybus;
         private System.Windows.Forms.GroupBox maskedTextBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelTake;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
+        private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.PictureBox pictureBoxTakeBus;
         private System.Windows.Forms.Button buttonTakeBus;
         private System.Windows.Forms.Button buttonCompare;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCompare;
         private System.Windows.Forms.Label label3;
     }
 }
