@@ -5,12 +5,14 @@ namespace WindowsFormsTrolleybus
 {
     public class Trolleybus : Bus
     {
+        
         public Color DopColor { private set; get; }
         public bool Antenna { private set; get; }
         public bool Windows { private set; get; }
         public bool Number { private set; get; }
 
         public DoorEnum DoorType { private set; get; }
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -26,11 +28,11 @@ namespace WindowsFormsTrolleybus
             Antenna = antenna;
             Windows = windows;
 
-            
         }
        
         public override void DrawBus(Graphics g)
         {
+
 
             base.DrawBus(g);
 
@@ -75,48 +77,47 @@ namespace WindowsFormsTrolleybus
             door.DrawDoors(g, DopColor);
 
 
+
             //window
             if (Windows)
             {
+
+
                 g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
 
                 g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
+
+
+                g.DrawRectangle(blackpen, _startPosX + 81, _startPosY + 15, 13, 23);
+                g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
             }
 
-            Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
+
+            //window
+            if (Windows)
+            {
+
+                g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
 
 
+                g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
+            }  
+            
             //antenna
             if (Antenna)
             {
+                Pen blackPen = new Pen(DopColor, 3);
+                Brush blackBrush = new SolidBrush(DopColor);
+
                 g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
 
-            //window
-            if (Windows)
-            {
-
-                g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
-                g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
-
-
-                g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
-                g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
-            }            
-
-            Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
-
-            if (Antenna)
-            {
-                //antenna
-                g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
-                g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
-                g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
-                g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
             }
 
             Pen redpen = new Pen(Color.Red);
