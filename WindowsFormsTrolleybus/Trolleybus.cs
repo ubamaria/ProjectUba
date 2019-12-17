@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 
 namespace WindowsFormsTrolleybus
@@ -10,7 +11,8 @@ namespace WindowsFormsTrolleybus
         public bool Windows { private set; get; }
         public bool Number { private set; get; }
 
-      
+        public DoorEnum DoorType { private set; get; }
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -25,22 +27,61 @@ namespace WindowsFormsTrolleybus
             Number = num;
             Antenna = antenna;
             Windows = windows;
-          
+
         }
        
         public override void DrawBus(Graphics g)
         {
 
-            Pen blackpen = new Pen(Color.Black);
-
 
             base.DrawBus(g);
+
+            Pen blackpen = new Pen(Color.Black);
+            Brush blackBrush = new SolidBrush(Color.Black);
+            Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
+            Brush whiteBrush = new SolidBrush(Color.White);
+
+            switch (new Random().Next(0, 3))
+            {
+                case 0:
+                    DoorType = DoorEnum.One;
+                    break;
+                case 1:
+                    DoorType = DoorEnum.Two;
+                    break;
+                case 2:
+                    DoorType = DoorEnum.Three;
+                    break;
+                default:
+                    DoorType = DoorEnum.One;
+                    break;
+            }
+
+            IDoor door;
+            switch (DoorType)
+            {
+                case DoorEnum.One:
+                    door = new RectangleDoors(_startPosX, _startPosY);
+                    break;
+                case DoorEnum.Two:
+                    door = new EllipseDoors(_startPosX, _startPosY);
+                    break;
+                case DoorEnum.Three:
+                    door = new DoorsWithOrnament(_startPosX, _startPosY);
+                    break;
+                default:
+                    door = new RectangleDoors(_startPosX, _startPosY);
+                    break;
+            }
+
+            door.DrawDoors(g, DopColor);
+
+
 
             //window
             if (Windows)
             {
 
-                Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
 
                 g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
@@ -48,16 +89,29 @@ namespace WindowsFormsTrolleybus
                 g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
 
+
                 g.DrawRectangle(blackpen, _startPosX + 81, _startPosY + 15, 13, 23);
                 g.FillRectangle(blueBrush, _startPosX + 81, _startPosY + 15, 13, 23);
             }
 
+
+            //window
+            if (Windows)
+            {
+
+                g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
+
+
+                g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
+                g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
+            }  
+            
             //antenna
             if (Antenna)
             {
                 Pen blackPen = new Pen(DopColor, 3);
                 Brush blackBrush = new SolidBrush(DopColor);
-
 
                 g.DrawRectangle(blackpen, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
