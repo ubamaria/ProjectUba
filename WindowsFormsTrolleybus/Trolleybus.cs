@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace WindowsFormsTrolleybus
 {
-    public class Trolleybus : Bus
+    public class Trolleybus : Bus, IComparable<Trolleybus>, IEquatable<Trolleybus>
     {
         public Color DopColor { private set; get; }
         public bool Antenna { private set; get; }
@@ -87,5 +87,90 @@ namespace WindowsFormsTrolleybus
             return base.ToString() + ";" + DopColor.Name + ";" + Number + ";" +
            Antenna + ";" + Windows;
         }
+
+        public int CompareTo(Trolleybus other)
+        {
+            var res = (this is Bus).CompareTo(other is Bus);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (Number != other.Number)
+            {
+                return Number.CompareTo(other.Number);
+            }
+            if ( Antenna != other.Antenna)
+            {
+                return Antenna.CompareTo(other.Antenna);
+            }
+            if (Windows != other.Windows)
+            {
+                return Windows.CompareTo(other.Windows);
+            }
+            return 0;
+        }
+
+        public bool Equals(Trolleybus other)
+        {
+            var res = (this as Bus).Equals(other as Bus);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Number != other.Number)
+            {
+                return false;
+            }
+            if (Antenna != other.Antenna)
+            {
+                return false;
+            }
+            if (Windows != other.Windows)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Trolleybus busObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(busObj);
+            }
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTrolleybus
 {
-    public class BusStation<T> where T : class, ITransport
+    public class BusStation<T> : IEnumerator<T>, IEnumerable<T>, IComparable<BusStation<T>> where T : class, ITransport
     {
         /// <summary>
         /// Словарь
@@ -18,7 +19,6 @@ namespace WindowsFormsTrolleybus
         /// Максимальное количество мест на стоянке
         /// </summary>
         private int _maxCount;
-
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
@@ -27,17 +27,29 @@ namespace WindowsFormsTrolleybus
         /// Высота окна отрисовки
         /// </summary>
         private int PictureHeight { get; set; }
-
         /// <summary>
         /// Размер парковочного места (ширина)
         /// </summary>
-
         private const int _placeSizeWidth = 210;
         /// <summary>
         /// Размер парковочного места (высота)
         /// </summary>
         private const int _placeSizeHeight = 80;
-
+        /// <summary>
+        /// Текущий элемент для вывода через IEnumerator (будет обращаться по своему
+        ///индексу к ключу словаря, по которму будет возвращаться запись)
+        /// </summary>
+        private int _currentIndex;
+        /// <summary>
+        /// Получить порядковое место на парковке
+        /// </summary>
+        public int GetKey
+        {
+            get
+            {
+                return _places.Keys.ToList()[_currentIndex];
+            }
+        }
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -48,6 +60,7 @@ namespace WindowsFormsTrolleybus
         {
             _maxCount = sizes;
             _places = new Dictionary<int, T>();
+            _currentIndex = -1;
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
         }
@@ -64,6 +77,10 @@ namespace WindowsFormsTrolleybus
             if (p._places.Count == p._maxCount)
             {
                 throw new BusStationOverflowException();
+            }
+            if (p._places.ContainsValue(trolleybus))
+            {
+                throw new BusStationAlreadyHaveException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -116,12 +133,10 @@ namespace WindowsFormsTrolleybus
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            var keys = _places.Keys.ToList();
-            for (int i = 0; i < keys.Count; i++)
+            foreach (var bus in _places)
             {
-                _places[keys[i]].DrawBus(g);
+                bus.Value.DrawBus(g);
             }
-
         }
         /// <summary>
         /// Метод отрисовки разметки парковочных мест
@@ -155,7 +170,7 @@ namespace WindowsFormsTrolleybus
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new BusStationNotFoundException(ind);
             }
             set
             {
@@ -170,7 +185,119 @@ namespace WindowsFormsTrolleybus
                     throw new BusStationOccupiedPlaceException(ind);
                 }
             }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для получения текущего элемента
+        /// </summary>
+        public T Current
+        {
+            get
+            {
+                return _places[_places.Keys.ToList()[_currentIndex]];
+            }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для получения текущего элемента
+        /// </summary>
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator, вызываемый при удалении объекта
+        /// </summary>
+        public void Dispose()
+        {
+            _places.Clear();
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для перехода к следующему элементу или началу
+        ///коллекции
+        /// </summary>
+        /// <returns></returns>
+        public bool MoveNext()
+        {
+            if (_currentIndex + 1 >= _places.Count)
+            {
+                Reset();
+                return false;
+            }
+            _currentIndex++;
+            return true;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для сброса и возврата к началу коллекции
+        /// </summary>
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
 
         }
+        /// <summary>
+        /// Метод интерфейса IComparable
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(BusStation<T> other)
+        {
+            if (_places.Count > other._places.Count)
+            {
+                return -1;
+            }
+            else if (_places.Count < other._places.Count)
+            {
+                return 1;
+            }
+            else if (_places.Count > 0)
+            {
+                var thisKeys = _places.Keys.ToList();
+                var otherKeys = other._places.Keys.ToList();
+                for (int i = 0; i < _places.Count; ++i)
+                {
+                    if (_places[thisKeys[i]] is Bus && other._places[thisKeys[i]] is
+                   Trolleybus)
+                    {
+                        return 1;
+                    }
+                    if (_places[thisKeys[i]] is Trolleybus && other._places[thisKeys[i]]
+                    is Bus)
+                    {
+                        return -1;
+                    }
+                    if (_places[thisKeys[i]] is Bus && other._places[thisKeys[i]] is
+                    Bus)
+                    {
+                        return (_places[thisKeys[i]] is
+                       Bus).CompareTo(other._places[thisKeys[i]] is Bus);
+                    }
+                    if (_places[thisKeys[i]] is Trolleybus && other._places[thisKeys[i]]
+                    is Trolleybus)
+                    {
+                        return (_places[thisKeys[i]] is
+                       Trolleybus).CompareTo(other._places[thisKeys[i]] is Trolleybus);
+                    }
+                }
+            }
+            return 0;
+        }     
     }
 }
