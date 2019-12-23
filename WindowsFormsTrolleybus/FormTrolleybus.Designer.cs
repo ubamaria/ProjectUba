@@ -52,7 +52,9 @@
             this.buttonCreateBus.Location = new System.Drawing.Point(13, 13);
             this.buttonCreateBus.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCreateBus.Name = "buttonCreateBus";
+
             this.buttonCreateBus.Size = new System.Drawing.Size(204, 28);
+
             this.buttonCreateBus.TabIndex = 3;
             this.buttonCreateBus.Text = "Создать автобус";
             this.buttonCreateBus.UseVisualStyleBackColor = true;
@@ -113,10 +115,12 @@
             // 
             // buttonCreateTrolleybus
             // 
+
             this.buttonCreateTrolleybus.Location = new System.Drawing.Point(271, 13);
             this.buttonCreateTrolleybus.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCreateTrolleybus.Name = "buttonCreateTrolleybus";
             this.buttonCreateTrolleybus.Size = new System.Drawing.Size(204, 28);
+
             this.buttonCreateTrolleybus.TabIndex = 11;
             this.buttonCreateTrolleybus.Text = "Создать троллейбус";
             this.buttonCreateTrolleybus.UseVisualStyleBackColor = true;
