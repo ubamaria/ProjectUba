@@ -1,3 +1,4 @@
+﻿using System;
 using System.Drawing;
 
 namespace WindowsFormsTrolleybus
@@ -27,7 +28,6 @@ namespace WindowsFormsTrolleybus
             Antenna = antenna;
             Windows = windows;
 
-          
         }
        
         public override void DrawBus(Graphics g)
@@ -35,17 +35,16 @@ namespace WindowsFormsTrolleybus
 
             Pen blackpen = new Pen(Color.Black);
 
-
             base.DrawBus(g);
 
             //window
             if (Windows)
             {
-
                 Brush blueBrush = new SolidBrush(Color.LightSkyBlue);
 
                 g.DrawRectangle(blackpen, _startPosX + 10, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 10, _startPosY + 20, 5, 5);
+
 
                 g.DrawRectangle(blackpen, _startPosX + 74, _startPosY + 20, 5, 5);
                 g.FillRectangle(blueBrush, _startPosX + 74, _startPosY + 20, 5, 5);
@@ -65,21 +64,6 @@ namespace WindowsFormsTrolleybus
                 g.FillRectangle(blackBrush, _startPosX + 25, _startPosY + 8, 40, 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
-
-            }
-
-            Pen redpen = new Pen(Color.Red);
-            Brush whiteBrush = new SolidBrush(Color.White);
-
-            if (Number)
-            {
-                //number
-                g.DrawRectangle(blackpen, _startPosX + 84, _startPosY + 44, 10, 7);
-                g.FillRectangle(whiteBrush, _startPosX + 84, _startPosY + 45, 10, 6);
-                g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 87, _startPosY + 50);
-                g.DrawLine(redpen, _startPosX + 87, _startPosY + 45, _startPosX + 85, _startPosY + 47);
-                g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 91, _startPosY + 50);
-                g.DrawLine(redpen, _startPosX + 91, _startPosY + 45, _startPosX + 89, _startPosY + 47);
             }
         }
     }

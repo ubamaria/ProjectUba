@@ -37,6 +37,10 @@
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
             this.labelTake = new System.Windows.Forms.Label();
+
+            this.labelLevel = new System.Windows.Forms.Label();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).BeginInit();
@@ -53,7 +57,7 @@
             // 
             // buttonSetBus
             // 
-            this.buttonSetBus.Location = new System.Drawing.Point(1167, 12);
+            this.buttonSetBus.Location = new System.Drawing.Point(1167, 167);
             this.buttonSetBus.Name = "buttonSetBus";
             this.buttonSetBus.Size = new System.Drawing.Size(133, 59);
             this.buttonSetBus.TabIndex = 1;
@@ -63,7 +67,7 @@
             // 
             // buttonSetTrolleybus
             // 
-            this.buttonSetTrolleybus.Location = new System.Drawing.Point(1167, 107);
+            this.buttonSetTrolleybus.Location = new System.Drawing.Point(1167, 254);
             this.buttonSetTrolleybus.Name = "buttonSetTrolleybus";
             this.buttonSetTrolleybus.Size = new System.Drawing.Size(133, 59);
             this.buttonSetTrolleybus.TabIndex = 2;
@@ -103,6 +107,7 @@
             this.pictureBoxTakeBus.TabStop = false;
             // 
             // maskedTextBoxPlace
+
             // 
             this.maskedTextBoxPlace.Location = new System.Drawing.Point(74, 48);
             this.maskedTextBoxPlace.Name = "maskedTextBoxPlace";
@@ -127,11 +132,33 @@
             this.labelTake.TabIndex = 4;
             this.labelTake.Text = "Забрать автобус";
             // 
+            // labelLevel
+            // 
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.Location = new System.Drawing.Point(1201, 9);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(56, 17);
+            this.labelLevel.TabIndex = 4;
+            this.labelLevel.Text = "Уровни";
+            // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.ItemHeight = 16;
+            this.listBoxLevels.Location = new System.Drawing.Point(1161, 35);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(156, 116);
+            this.listBoxLevels.TabIndex = 5;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+
+            // 
             // FormBusStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 615);
+            this.Controls.Add(this.listBoxLevels);
+            this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.buttonSetTrolleybus);
             this.Controls.Add(this.buttonSetBus);
@@ -143,6 +170,7 @@
             this.maskedTextBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,6 +185,9 @@
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.PictureBox pictureBoxTakeBus;
         private System.Windows.Forms.Button buttonTakeBus;
-        
+
+        private System.Windows.Forms.Label labelLevel;
+        private System.Windows.Forms.ListBox listBoxLevels;
+
     }
 }

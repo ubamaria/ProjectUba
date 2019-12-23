@@ -27,6 +27,7 @@ namespace WindowsFormsTrolleybus
             pictureBoxTrolleybus.Image = bmp;
         }
 
+        //создать автобус
 
         private void buttonCreateBus_Click(object sender, EventArgs e)
         {
@@ -36,6 +37,7 @@ namespace WindowsFormsTrolleybus
             Draw();
         }
 
+        //создать троллейбус
 
         private void buttonCreateTrolleybus_Click(object sender, EventArgs e)
         {
@@ -64,6 +66,7 @@ namespace WindowsFormsTrolleybus
             }
             Draw();
 
-        } 
+        }
+
     }
 }
