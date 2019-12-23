@@ -12,11 +12,11 @@ namespace WindowsFormsTrolleybus
 {
     public partial class FormBusStation : Form
     {
-        BusStation<ITransport> station;
+        BusStation<ITransport,IDoor> station;
         public FormBusStation()
         {
             InitializeComponent();
-            station = new BusStation<ITransport>(20, pictureBoxStation.Width, pictureBoxStation.Height);
+            station = new BusStation<ITransport, IDoor>(20, pictureBoxStation.Width, pictureBoxStation.Height);
             Draw();
         }
 
@@ -49,7 +49,7 @@ namespace WindowsFormsTrolleybus
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
                     var bus = new Trolleybus(100, 1000, dialog.Color, dialogDop.Color,
-                   false, true, true);
+                   true, true, true);
                     int place = station + bus;
                     Draw();
                 }
@@ -83,5 +83,24 @@ namespace WindowsFormsTrolleybus
 
         }
 
+
+        private void buttonCompare_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBoxCompare.Text != "")
+            {
+                if (station >= Convert.ToInt32(maskedTextBoxCompare.Text))
+                {
+                    labelCompare.Text = "Кол-во транспорта > " + maskedTextBoxCompare.Text;
+                }
+                else if (station <= Convert.ToInt32(maskedTextBoxCompare.Text))
+                {
+                    labelCompare.Text = "Кол-во транспорта < " + maskedTextBoxCompare.Text;
+                }
+                else 
+                {
+                    labelCompare.Text = "Кол-во транспорта = " + maskedTextBoxCompare.Text;
+                }
+            }
+        }
     }
 }

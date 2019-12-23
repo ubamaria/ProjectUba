@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -120,6 +119,7 @@ namespace WindowsFormsTrolleybus
 
             g.DrawRectangle(blackpen, _startPosX + 88, _startPosY + 40, 4, 2);
             g.FillRectangle(yellowBrush, _startPosX + 88, _startPosY + 40, 4, 2);
+
         }
     }
 }

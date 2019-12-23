@@ -37,6 +37,9 @@
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
             this.labelTake = new System.Windows.Forms.Label();
+            this.buttonCompare = new System.Windows.Forms.Button();
+            this.maskedTextBoxCompare = new System.Windows.Forms.MaskedTextBox();
+            this.labelCompare = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).BeginInit();
@@ -127,11 +130,39 @@
             this.labelTake.TabIndex = 4;
             this.labelTake.Text = "Забрать автобус";
             // 
+            // buttonCompare
+            // 
+            this.buttonCompare.Location = new System.Drawing.Point(1167, 201);
+            this.buttonCompare.Name = "buttonCompare";
+            this.buttonCompare.Size = new System.Drawing.Size(133, 59);
+            this.buttonCompare.TabIndex = 4;
+            this.buttonCompare.Text = "Сравнить";
+            this.buttonCompare.UseVisualStyleBackColor = true;
+            this.buttonCompare.Click += new System.EventHandler(this.buttonCompare_Click);
+            // 
+            // maskedTextBoxCompare
+            // 
+            this.maskedTextBoxCompare.Location = new System.Drawing.Point(1204, 278);
+            this.maskedTextBoxCompare.Name = "maskedTextBoxCompare";
+            this.maskedTextBoxCompare.Size = new System.Drawing.Size(55, 22);
+            this.maskedTextBoxCompare.TabIndex = 6;
+            // 
+            // labelCompare
+            // 
+            this.labelCompare.AutoSize = true;
+            this.labelCompare.Location = new System.Drawing.Point(1127, 311);
+            this.labelCompare.Name = "labelCompare";
+            this.labelCompare.Size = new System.Drawing.Size(0, 17);
+            this.labelCompare.TabIndex = 7;
+            // 
             // FormBusStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 615);
+            this.Controls.Add(this.labelCompare);
+            this.Controls.Add(this.maskedTextBoxCompare);
+            this.Controls.Add(this.buttonCompare);
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.buttonSetTrolleybus);
             this.Controls.Add(this.buttonSetBus);
@@ -143,6 +174,7 @@
             this.maskedTextBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,6 +189,8 @@
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.PictureBox pictureBoxTakeBus;
         private System.Windows.Forms.Button buttonTakeBus;
-        
+        private System.Windows.Forms.Button buttonCompare;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCompare;
+        private System.Windows.Forms.Label labelCompare;
     }
 }

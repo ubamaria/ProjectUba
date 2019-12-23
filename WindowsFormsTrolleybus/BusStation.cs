@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTrolleybus
 {
-    public class BusStation<T> where T : class, ITransport
+    public class BusStation<T,U> where T : class, ITransport where U : class, IDoor
     {
         /// <summary>
         /// Массив объектов, которые храним
         /// </summary>
         private T[] _places;
+        private U[] _doors;
+
 
         /// <summary>
         /// Ширина окна отрисовки
@@ -42,6 +44,7 @@ namespace WindowsFormsTrolleybus
         public BusStation(int sizes, int pictureWidth, int pictureHeight)
         {
             _places = new T[sizes];
+            _doors = new U[sizes];
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
             for (int i = 0; i < _places.Length; i++)
@@ -57,7 +60,7 @@ namespace WindowsFormsTrolleybus
         /// <param name="p">Парковка</param>
         /// <param name="car">Добавляемый автомобиль</param>
         /// <returns></returns>
-        public static int operator +(BusStation<T> p, T trolleybus)
+        public static int operator +(BusStation<T,U> p, T trolleybus)
         {
             for (int i = 0; i < p._places.Length; i++)
             {
@@ -81,7 +84,7 @@ namespace WindowsFormsTrolleybus
         /// <param name="index">Индекс места, с которого пытаемся извлечь
         ///   объект</param>
         /// <returns></returns>
-        public static T operator -(BusStation<T> p, int index)
+        public static T operator -(BusStation<T,U> p, int index)
         {
             if (index < 0 || index > p._places.Length)
             {
@@ -94,6 +97,28 @@ namespace WindowsFormsTrolleybus
                 return trolleybus;
             }
             return null;
+        }
+
+        public static bool operator >=(BusStation<T, U> p, int x)
+        {
+            int k = 0;
+            for (int i = 0; i < p._places.Length; i++)
+            {
+                if (p._places[i] != null)
+                    k++;
+            }
+            return k > x;
+        }
+
+        public static bool operator <=(BusStation<T, U> p, int x)
+        {
+            int k = 0;
+            for (int i = 0; i < p._places.Length; i++)
+            {
+                if (p._places[i] != null)
+                    k++;
+            }
+            return k < x;
         }
 
         /// <summary>
