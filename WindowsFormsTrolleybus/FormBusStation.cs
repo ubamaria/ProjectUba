@@ -89,18 +89,17 @@ namespace WindowsFormsTrolleybus
             {
                 if (station >= Convert.ToInt32(maskedTextBoxCompare.Text))
                 {
-                    label3.Text = "Кол-во транспорта > " + maskedTextBoxCompare.Text;
+                    labelCompare.Text = "Кол-во транспорта > " + maskedTextBoxCompare.Text;
                 }
                 else if (station <= Convert.ToInt32(maskedTextBoxCompare.Text))
                 {
-                    label3.Text = "Кол-во транспорта < " + maskedTextBoxCompare.Text;
+                    labelCompare.Text = "Кол-во транспорта < " + maskedTextBoxCompare.Text;
                 }
                 else 
                 {
-                    label3.Text = "Кол-во транспорта = " + maskedTextBoxCompare.Text;
+                    labelCompare.Text = "Кол-во транспорта = " + maskedTextBoxCompare.Text;
                 }
             }
         }
-
     }
 }

@@ -39,7 +39,7 @@
             this.labelTake = new System.Windows.Forms.Label();
             this.buttonCompare = new System.Windows.Forms.Button();
             this.maskedTextBoxCompare = new System.Windows.Forms.MaskedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelCompare = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).BeginInit();
@@ -147,20 +147,20 @@
             this.maskedTextBoxCompare.Size = new System.Drawing.Size(55, 22);
             this.maskedTextBoxCompare.TabIndex = 6;
             // 
-            // label3
+            // labelCompare
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1127, 311);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 17);
-            this.label3.TabIndex = 7;
+            this.labelCompare.AutoSize = true;
+            this.labelCompare.Location = new System.Drawing.Point(1127, 311);
+            this.labelCompare.Name = "labelCompare";
+            this.labelCompare.Size = new System.Drawing.Size(0, 17);
+            this.labelCompare.TabIndex = 7;
             // 
             // FormBusStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 615);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelCompare);
             this.Controls.Add(this.maskedTextBoxCompare);
             this.Controls.Add(this.buttonCompare);
             this.Controls.Add(this.maskedTextBox);
@@ -191,6 +191,6 @@
         private System.Windows.Forms.Button buttonTakeBus;
         private System.Windows.Forms.Button buttonCompare;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCompare;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCompare;
     }
 }
