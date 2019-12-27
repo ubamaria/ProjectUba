@@ -147,7 +147,9 @@ namespace WindowsFormsTrolleybus
             if (saveFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 
+
                 try
+
 
                 {
                     station.SaveData(saveFileDialogBusStation.FileName);

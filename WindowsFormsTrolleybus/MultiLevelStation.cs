@@ -9,7 +9,7 @@ namespace WindowsFormsTrolleybus
 {
     class MultiLevelStation
     {
-        List<BusStation<ITransport,IDoor>> stationStages;
+        List<BusStation<ITransport>> stationStages;
 
         private const int countPlaces = 20;
         /// <summary>
@@ -28,12 +28,14 @@ namespace WindowsFormsTrolleybus
             this.pictureWidth = pictureWidth;
             this.pictureHeight = pictureHeight;
 
+
             for (int i = 0; i < countStages; ++i)
             {
-                stationStages.Add(new BusStation<ITransport, IDoor>(countPlaces, pictureWidth,
+                stationStages.Add(new BusStation<ITransport>(countPlaces, pictureWidth,
                pictureHeight));
             }
         }
+
 
         /// <summary>
         /// Индексатор
@@ -41,6 +43,7 @@ namespace WindowsFormsTrolleybus
         /// <param name="ind"></param>
         /// <returns></returns>
         public BusStation<ITransport> this[int ind]
+
 
         {
             get

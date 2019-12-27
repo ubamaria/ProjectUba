@@ -44,6 +44,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialogBusStation = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogBusStation = new System.Windows.Forms.OpenFileDialog();
+
             this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBox.SuspendLayout();
@@ -197,6 +198,7 @@
             this.buttonSort.Text = "Сортировать";
             this.buttonSort.UseVisualStyleBackColor = true;
             this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+
             // 
             // FormBusStation
             // 
@@ -243,5 +245,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialogBusStation;
         private System.Windows.Forms.OpenFileDialog openFileDialogBusStation;
         private System.Windows.Forms.Button buttonSort;
+
     }
 }
