@@ -23,21 +23,28 @@ namespace WindowsFormsTrolleybus
 
         public MultiLevelStation(int countStages, int pictureWidth, int pictureHeight)
         {
+
             stationStages = new List<BusStation<ITransport>>();
             this.pictureWidth = pictureWidth;
             this.pictureHeight = pictureHeight;
+
+
             for (int i = 0; i < countStages; ++i)
             {
                 stationStages.Add(new BusStation<ITransport>(countPlaces, pictureWidth,
                pictureHeight));
             }
         }
+
+
         /// <summary>
         /// Индексатор
         /// </summary>
         /// <param name="ind"></param>
         /// <returns></returns>
         public BusStation<ITransport> this[int ind]
+
+
         {
             get
             {
