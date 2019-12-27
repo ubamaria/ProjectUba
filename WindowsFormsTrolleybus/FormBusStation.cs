@@ -52,11 +52,14 @@ namespace WindowsFormsTrolleybus
         //take
         private void buttonTakeBus_Click(object sender, EventArgs e)
         {
+
             if (listBoxLevels.SelectedIndex > -1)
             {
                 if (maskedTextBoxPlace.Text != "")
+
                 {
                     try
+
                     {
                         
                         var bus = station[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxPlace.Text);
@@ -95,6 +98,7 @@ namespace WindowsFormsTrolleybus
                 }
             }
         }
+
         /// <summary>
         /// Метод обработки выбора элемента на listBoxLevels
         /// </summary>
@@ -137,11 +141,14 @@ namespace WindowsFormsTrolleybus
             }
         }
 
+
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+
                 try
+
                 {
                     station.SaveData(saveFileDialogBusStation.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
@@ -161,7 +168,9 @@ namespace WindowsFormsTrolleybus
         {
             if (openFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+
                 try
+
                 {
                     station.LoadData(openFileDialogBusStation.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
@@ -190,6 +199,5 @@ namespace WindowsFormsTrolleybus
             Draw();
             logger.Info("Сортировка уровней");
         }
-
     }
 }
