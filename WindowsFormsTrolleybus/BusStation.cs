@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTrolleybus
 {
-    public class BusStation<T,U> where T : class, ITransport where U : class, IDoor
+    public class BusStation<T> where T : class, ITransport 
     {
         /// <summary>
         /// Словарь
@@ -59,7 +59,7 @@ namespace WindowsFormsTrolleybus
         /// <param name="p">Парковка</param>
         /// <param name="trolleybus">Добавляемый автобус</param>
         /// <returns></returns>
-        public static int operator +(BusStation<T,U> p, T trolleybus)
+        public static int operator +(BusStation<T> p, T trolleybus)
         {
             if (p._places.Count == p._maxCount)
             {
@@ -87,7 +87,7 @@ namespace WindowsFormsTrolleybus
         /// <param name="index">Индекс места, с которого пытаемся извлечь
         ///   объект</param>
         /// <returns></returns>
-        public static T operator -(BusStation<T,U> p, int index)
+        public static T operator -(BusStation<T> p, int index)
         {
             if (!p.CheckFreePlace(index))
             {
