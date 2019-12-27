@@ -38,16 +38,16 @@
             this.labelLevel = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.buttonSetBus = new System.Windows.Forms.Button();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuStripBusStation = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialogBusStation = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialogBusStation = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).BeginInit();
-            this.menuStrip.SuspendLayout();
+            this.menuStripBusStation.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxStation
@@ -144,16 +144,16 @@
             this.buttonSetBus.UseVisualStyleBackColor = true;
             this.buttonSetBus.Click += new System.EventHandler(this.buttonSetBus_Click_1);
             // 
-            // menuStrip
+            // menuStripBusStation
             // 
-            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripBusStation.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStripBusStation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1332, 28);
-            this.menuStrip.TabIndex = 7;
-            this.menuStrip.Text = "menuStrip1";
+            this.menuStripBusStation.Location = new System.Drawing.Point(0, 0);
+            this.menuStripBusStation.Name = "menuStripBusStation";
+            this.menuStripBusStation.Size = new System.Drawing.Size(1332, 28);
+            this.menuStripBusStation.TabIndex = 7;
+            this.menuStripBusStation.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
@@ -167,25 +167,25 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
-            // saveFileDialog
+            // saveFileDialogBusStation
             // 
-            this.saveFileDialog.Filter = "txt file | *.txt";
+            this.saveFileDialogBusStation.Filter = "txt file | *.txt";
             // 
-            // openFileDialog
+            // openFileDialogBusStation
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.Filter = "txt file | *.txt";
+            this.openFileDialogBusStation.FileName = "openFileDialog1";
+            this.openFileDialogBusStation.Filter = "txt file | *.txt";
             // 
             // FormBusStation
             // 
@@ -197,16 +197,16 @@
             this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.pictureBoxStation);
-            this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
+            this.Controls.Add(this.menuStripBusStation);
+            this.MainMenuStrip = this.menuStripBusStation;
             this.Name = "FormBusStation";
             this.Text = "Автовокзал";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).EndInit();
             this.maskedTextBox.ResumeLayout(false);
             this.maskedTextBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).EndInit();
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            this.menuStripBusStation.ResumeLayout(false);
+            this.menuStripBusStation.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,11 +224,11 @@
         private System.Windows.Forms.Label labelLevel;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Button buttonSetBus;
-        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.MenuStrip menuStripBusStation;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogBusStation;
+        private System.Windows.Forms.OpenFileDialog openFileDialogBusStation;
     }
 }

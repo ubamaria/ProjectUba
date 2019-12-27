@@ -112,9 +112,9 @@ namespace WindowsFormsTrolleybus
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (station.SaveData(saveFileDialog.FileName))
+                if (station.SaveData(saveFileDialogBusStation.FileName))
                 {
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,9 +129,9 @@ namespace WindowsFormsTrolleybus
 
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (station.LoadData(openFileDialog.FileName))
+                if (station.LoadData(openFileDialogBusStation.FileName))
                 {
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
 MessageBoxIcon.Information);
