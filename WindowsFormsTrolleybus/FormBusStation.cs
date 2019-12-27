@@ -139,14 +139,14 @@ namespace WindowsFormsTrolleybus
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    station.SaveData(saveFileDialog.FileName);
+                    station.SaveData(saveFileDialogBusStation.FileName);
                     MessageBox.Show("Сохранение прошло успешно", "Результат",
      MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    logger.Info("Сохранено в файл " + saveFileDialog.FileName);
+                    logger.Info("Сохранено в файл " + saveFileDialogBusStation.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -159,14 +159,14 @@ namespace WindowsFormsTrolleybus
 
             private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
-                    station.LoadData(openFileDialog.FileName);
+                    station.LoadData(openFileDialogBusStation.FileName);
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                    logger.Info("Загружено из файла " + openFileDialog.FileName);
+                    logger.Info("Загружено из файла " + openFileDialogBusStation.FileName);
                 }
                 catch (BusStationOccupiedPlaceException ex)
                 {
