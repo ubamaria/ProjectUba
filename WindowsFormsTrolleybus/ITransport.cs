@@ -18,7 +18,6 @@ namespace WindowsFormsTrolleybus
         //отрисовка троллейбуса
         void DrawBus(Graphics g);
 
-
         void SetMainColor(Color color);
 
     }

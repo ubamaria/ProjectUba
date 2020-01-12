@@ -46,7 +46,6 @@ namespace WindowsFormsTrolleybus
             }
         }
 
-
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -81,7 +80,6 @@ namespace WindowsFormsTrolleybus
                     break;
             }
         }
-
         public override void DrawBus(Graphics g)
         {
             Pen blackpen = new Pen(Color.Black);

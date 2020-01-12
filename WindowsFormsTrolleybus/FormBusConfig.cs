@@ -31,7 +31,6 @@ namespace WindowsFormsTrolleybus
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
 
         }
-
         private void DrawBus()
         {
             if (bus != null)

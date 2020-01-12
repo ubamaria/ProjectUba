@@ -35,16 +35,12 @@ namespace WindowsFormsTrolleybus
                pictureHeight));
             }
         }
-
-
         /// <summary>
         /// Индексатор
         /// </summary>
         /// <param name="ind"></param>
         /// <returns></returns>
         public BusStation<ITransport> this[int ind]
-
-
         {
             get
             {
