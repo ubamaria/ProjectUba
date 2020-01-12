@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTrolleybus
 {
-
     public class BusStation<T> : IEnumerator<T>, IEnumerable<T>, IComparable<BusStation<T>> where T : class, ITransport
 
     {
