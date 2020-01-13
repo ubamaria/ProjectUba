@@ -5,7 +5,6 @@ namespace WindowsFormsTrolleybus
 {
     public class Trolleybus : Bus, IComparable<Trolleybus>, IEquatable<Trolleybus>
     {
-
         public Color DopColor { private set; get; }
         public bool Antenna { private set; get; }
         public bool Windows { private set; get; }
@@ -173,6 +172,5 @@ namespace WindowsFormsTrolleybus
         {
             return base.GetHashCode();
         }
-
     }
 }
