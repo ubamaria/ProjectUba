@@ -148,7 +148,7 @@
             // 
             // panelorange
             // 
-            this.panelorange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panelorange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panelorange.Location = new System.Drawing.Point(88, 209);
             this.panelorange.Name = "panelorange";
             this.panelorange.Size = new System.Drawing.Size(40, 39);

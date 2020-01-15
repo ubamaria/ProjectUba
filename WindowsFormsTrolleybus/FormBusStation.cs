@@ -1,12 +1,6 @@
 ﻿using NLog;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsTrolleybus
@@ -134,9 +128,9 @@ namespace WindowsFormsTrolleybus
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Неизвестная ошибка",
+                    MessageBox.Show(ex.Message, "На стоянке уже есть такой автобус",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    logger.Error("Неизвестная ошибка");
+                    logger.Error("На стоянке уже есть такой автобус");
                 }
             }
         }
@@ -195,5 +189,11 @@ namespace WindowsFormsTrolleybus
             }
         }
 
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            station.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
+        }
     }
 }

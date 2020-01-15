@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace WindowsFormsTrolleybus
 {
@@ -74,29 +73,23 @@ namespace WindowsFormsTrolleybus
                 {
                     //Начинаем уровень
                     sw.WriteLine("Level");
-                    for (int i = 0; i < countPlaces; i++)
+                    foreach (ITransport bus in level)
                     {
-                        try
+                        //если место не пустое
+                        //Записываем тип мшаины
+                        if (bus.GetType().Name == "Bus")
                         {
-                            var bus = level[i];
-                            if (bus != null)
-                            {
-                                //если место не пустое
-                                //Записываем тип мшаины
-                                if (bus.GetType().Name == "Bus")
-                                {
-                                    sw.Write(i + ":Bus:");
-                                }
-                                if (bus.GetType().Name == "Trolleybus")
-                                {
-                                    sw.Write(i + ":Trolleybus:");
-                                }
-                                sw.WriteLine(bus);
-                            }
+
+                            sw.Write(level.GetKey + ":Bus:");
+
                         }
-                        finally { }
-                    } 
-                
+                        if (bus.GetType().Name == "Trolleybus")
+                        {
+
+                            sw.Write(level.GetKey + ":Trolleybus:");
+                        }
+                        sw.WriteLine(bus);
+                    }
                 }
             }
         }
@@ -112,7 +105,6 @@ namespace WindowsFormsTrolleybus
             {
                 throw new FileNotFoundException();
             }
-
             using (StreamReader sr = new StreamReader(filename))
             {
                 string str = sr.ReadLine();
@@ -163,8 +155,14 @@ namespace WindowsFormsTrolleybus
                         stationStages[counter][Convert.ToInt32(splitStr[0])] = bus;
                     }
                 }
-            }
+            }      
+        }
+        /// <summary>
+        /// Сортировка уровней
+        /// </summary>
+        public void Sort()
+        {
+            stationStages.Sort();
         }
     }
 }
-
