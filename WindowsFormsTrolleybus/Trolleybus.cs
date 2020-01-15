@@ -20,7 +20,7 @@ namespace WindowsFormsTrolleybus
         /// <param name="dopColor">Дополнительный цвет</param>
         public Trolleybus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool num, bool antenna, bool windows) :
 
-            base (maxSpeed, weight, mainColor)
+            base(maxSpeed, weight, mainColor)
 
         {
             DopColor = dopColor;
@@ -29,7 +29,7 @@ namespace WindowsFormsTrolleybus
             Windows = windows;
 
         }
-       
+
         public override void DrawBus(Graphics g)
         {
 
@@ -65,6 +65,10 @@ namespace WindowsFormsTrolleybus
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY - 2);
                 g.DrawLine(blackPen, _startPosX + 40, _startPosY + 8, _startPosX - 10, _startPosY + 3);
             }
+        }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }
