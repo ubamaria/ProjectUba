@@ -149,12 +149,10 @@ DragDropEffects.Copy);
             }
         }
 
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             eventAddBus?.Invoke(bus);
             Close();
         }
-
     }
 }
