@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBoxStation = new System.Windows.Forms.PictureBox();
-            this.maskedTextBox = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxTake = new System.Windows.Forms.GroupBox();
             this.buttonTakeBus = new System.Windows.Forms.Button();
             this.pictureBoxTakeBus = new System.Windows.Forms.PictureBox();
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
@@ -45,7 +45,7 @@
             this.saveFileDialogBusStation = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogBusStation = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
-            this.maskedTextBox.SuspendLayout();
+            this.maskedTextBoxTake.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).BeginInit();
             this.menuStripBusStation.SuspendLayout();
             this.SuspendLayout();
@@ -59,18 +59,18 @@
             this.pictureBoxStation.TabIndex = 0;
             this.pictureBoxStation.TabStop = false;
             // 
-            // maskedTextBox
+            // maskedTextBoxTake
             // 
-            this.maskedTextBox.Controls.Add(this.buttonTakeBus);
-            this.maskedTextBox.Controls.Add(this.pictureBoxTakeBus);
-            this.maskedTextBox.Controls.Add(this.maskedTextBoxPlace);
-            this.maskedTextBox.Controls.Add(this.labelPlace);
-            this.maskedTextBox.Controls.Add(this.labelTake);
-            this.maskedTextBox.Location = new System.Drawing.Point(1149, 353);
-            this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(171, 233);
-            this.maskedTextBox.TabIndex = 3;
-            this.maskedTextBox.TabStop = false;
+            this.maskedTextBoxTake.Controls.Add(this.buttonTakeBus);
+            this.maskedTextBoxTake.Controls.Add(this.pictureBoxTakeBus);
+            this.maskedTextBoxTake.Controls.Add(this.maskedTextBoxPlace);
+            this.maskedTextBoxTake.Controls.Add(this.labelPlace);
+            this.maskedTextBoxTake.Controls.Add(this.labelTake);
+            this.maskedTextBoxTake.Location = new System.Drawing.Point(1149, 353);
+            this.maskedTextBoxTake.Name = "maskedTextBoxTake";
+            this.maskedTextBoxTake.Size = new System.Drawing.Size(171, 233);
+            this.maskedTextBoxTake.TabIndex = 3;
+            this.maskedTextBoxTake.TabStop = false;
             // 
             // buttonTakeBus
             // 
@@ -195,15 +195,15 @@
             this.Controls.Add(this.buttonSetBus);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.labelLevel);
-            this.Controls.Add(this.maskedTextBox);
+            this.Controls.Add(this.maskedTextBoxTake);
             this.Controls.Add(this.pictureBoxStation);
             this.Controls.Add(this.menuStripBusStation);
             this.MainMenuStrip = this.menuStripBusStation;
             this.Name = "FormBusStation";
             this.Text = "Автовокзал";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).EndInit();
-            this.maskedTextBox.ResumeLayout(false);
-            this.maskedTextBox.PerformLayout();
+            this.maskedTextBoxTake.ResumeLayout(false);
+            this.maskedTextBoxTake.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).EndInit();
             this.menuStripBusStation.ResumeLayout(false);
             this.menuStripBusStation.PerformLayout();
@@ -215,7 +215,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxStation;
-        private System.Windows.Forms.GroupBox maskedTextBox;
+        private System.Windows.Forms.GroupBox maskedTextBoxTake;
         private System.Windows.Forms.Label labelTake;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
         private System.Windows.Forms.Label labelPlace;
