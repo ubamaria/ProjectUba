@@ -34,7 +34,6 @@ namespace WindowsFormsTrolleybus
                 listBoxLevels.Items.Add("Уровень " + (i + 1));
             }
             listBoxLevels.SelectedIndex = 0;
-
         }
 
         private void Draw()
@@ -110,6 +109,42 @@ namespace WindowsFormsTrolleybus
                 {
                     MessageBox.Show("Автобус не удалось поставить");
                 }
+            }
+        }
+
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (station.SaveData(saveFileDialogBusStation.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogBusStation.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (station.LoadData(openFileDialogBusStation.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
+MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                Draw();
             }
         }
 

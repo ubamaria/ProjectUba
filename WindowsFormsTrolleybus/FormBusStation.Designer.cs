@@ -35,22 +35,27 @@
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
             this.labelTake = new System.Windows.Forms.Label();
-
             this.labelLevel = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.buttonSetBus = new System.Windows.Forms.Button();
-
+            this.menuStripBusStation = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialogBusStation = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialogBusStation = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).BeginInit();
             this.maskedTextBoxTake.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).BeginInit();
+            this.menuStripBusStation.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxStation
             // 
             this.pictureBoxStation.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxStation.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxStation.Location = new System.Drawing.Point(0, 28);
             this.pictureBoxStation.Name = "pictureBoxStation";
-            this.pictureBoxStation.Size = new System.Drawing.Size(1143, 615);
+            this.pictureBoxStation.Size = new System.Drawing.Size(1143, 587);
             this.pictureBoxStation.TabIndex = 0;
             this.pictureBoxStation.TabStop = false;
             // 
@@ -86,7 +91,6 @@
             this.pictureBoxTakeBus.TabStop = false;
             // 
             // maskedTextBoxPlace
-
             // 
             this.maskedTextBoxPlace.Location = new System.Drawing.Point(74, 48);
             this.maskedTextBoxPlace.Name = "maskedTextBoxPlace";
@@ -129,7 +133,6 @@
             this.listBoxLevels.Size = new System.Drawing.Size(156, 116);
             this.listBoxLevels.TabIndex = 5;
             this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
-
             // 
             // buttonSetBus
             // 
@@ -141,6 +144,49 @@
             this.buttonSetBus.UseVisualStyleBackColor = true;
             this.buttonSetBus.Click += new System.EventHandler(this.buttonSetBus_Click_1);
             // 
+            // menuStripBusStation
+            // 
+            this.menuStripBusStation.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStripBusStation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem});
+            this.menuStripBusStation.Location = new System.Drawing.Point(0, 0);
+            this.menuStripBusStation.Name = "menuStripBusStation";
+            this.menuStripBusStation.Size = new System.Drawing.Size(1332, 28);
+            this.menuStripBusStation.TabIndex = 7;
+            this.menuStripBusStation.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьToolStripMenuItem,
+            this.загрузитьToolStripMenuItem});
+            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // загрузитьToolStripMenuItem
+            // 
+            this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.загрузитьToolStripMenuItem.Text = "Загрузить";
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            // 
+            // saveFileDialogBusStation
+            // 
+            this.saveFileDialogBusStation.Filter = "txt file | *.txt";
+            // 
+            // openFileDialogBusStation
+            // 
+            this.openFileDialogBusStation.FileName = "openFileDialog1";
+            this.openFileDialogBusStation.Filter = "txt file | *.txt";
+            // 
             // FormBusStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -151,12 +197,16 @@
             this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.maskedTextBoxTake);
             this.Controls.Add(this.pictureBoxStation);
+            this.Controls.Add(this.menuStripBusStation);
+            this.MainMenuStrip = this.menuStripBusStation;
             this.Name = "FormBusStation";
             this.Text = "Автовокзал";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStation)).EndInit();
             this.maskedTextBoxTake.ResumeLayout(false);
             this.maskedTextBoxTake.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeBus)).EndInit();
+            this.menuStripBusStation.ResumeLayout(false);
+            this.menuStripBusStation.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,10 +221,14 @@
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.PictureBox pictureBoxTakeBus;
         private System.Windows.Forms.Button buttonTakeBus;
-
         private System.Windows.Forms.Label labelLevel;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Button buttonSetBus;
-
+        private System.Windows.Forms.MenuStrip menuStripBusStation;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogBusStation;
+        private System.Windows.Forms.OpenFileDialog openFileDialogBusStation;
     }
 }
