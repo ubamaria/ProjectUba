@@ -54,9 +54,9 @@
             // pictureBoxStation
             // 
             this.pictureBoxStation.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxStation.Location = new System.Drawing.Point(0, 28);
+            this.pictureBoxStation.Location = new System.Drawing.Point(0, 30);
             this.pictureBoxStation.Name = "pictureBoxStation";
-            this.pictureBoxStation.Size = new System.Drawing.Size(1143, 587);
+            this.pictureBoxStation.Size = new System.Drawing.Size(1143, 585);
             this.pictureBoxStation.TabIndex = 0;
             this.pictureBoxStation.TabStop = false;
             // 
@@ -152,7 +152,7 @@
             this.файлToolStripMenuItem});
             this.menuStripBusStation.Location = new System.Drawing.Point(0, 0);
             this.menuStripBusStation.Name = "menuStripBusStation";
-            this.menuStripBusStation.Size = new System.Drawing.Size(1332, 28);
+            this.menuStripBusStation.Size = new System.Drawing.Size(1332, 30);
             this.menuStripBusStation.TabIndex = 7;
             this.menuStripBusStation.Text = "menuStrip1";
             // 
