@@ -47,14 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bus.cs" />
+
     <Compile Include="BusStation.cs" />
+
     <Compile Include="Direction.cs" />
+
     <Compile Include="FormBusConfig.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBusConfig.Designer.cs">
       <DependentUpon>FormBusConfig.cs</DependentUpon>
     </Compile>
+
+
     <Compile Include="FormBusStation.cs">
       <SubType>Form</SubType>
     </Compile>
